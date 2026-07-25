@@ -1,315 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>sahaAI - Helping Small Businesses</title>
-  <meta name="description" content="A unified platform built to bring enterprise-grade AI features to local businesses without the complexity." />
-  
-  <!-- Google Fonts: Syne and DM Sans -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
-  
-  <!-- Connect to the existing styles.css -->
-  <link rel="stylesheet" href="styles.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sahaAI - Client Dashboard</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    .tools-grid {
-      grid-template-columns: repeat(3, 1fr) !important;
+    body {
+      background-color: #0b0d08;
+      color: #e2e8f0;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     }
-    .how-step {
-      background: transparent;
-      border: none;
-      border-top: 1px solid var(--border);
-      border-radius: 0;
-      padding: 24px 0;
+    .neon-yellow {
+      color: #d4f62e;
     }
-    .pricing-grid {
-      display: flex;
-      justify-content: center;
+    .bg-neon-yellow {
+      background-color: #d4f62e;
     }
-    .plan-card {
-      width: 100%;
-      max-width: 400px;
+    .border-neon-yellow {
+      border-color: #d4f62e;
     }
-    .footer-top {
-      grid-template-columns: 1fr 1fr;
+    .card-bg {
+      background-color: #12150e;
+      border: 1px solid #282e1c;
+    }
+    .inner-card {
+      background-color: #181d13;
+      border: 1px solid #2f3721;
     }
   </style>
 </head>
-<body>
+<body class="min-h-screen flex flex-col justify-between">
 
-  <!-- NAVBAR -->
-  <nav class="navbar" style="border-bottom: none; background: #0a0a0a;">
-    <div class="nav-inner" style="max-width: 1400px;">
-      <a href="#" class="logo" style="color: var(--yellow);">sahaAI / സഹായി</a>
-      <ul class="nav-links" style="margin: 0 auto;">
-        <li><a href="#" style="color: var(--yellow); position: relative;">How it Works
-          <span style="position: absolute; bottom: -8px; left: 0; width: 100%; height: 2px; background: var(--yellow);"></span>
-        </a></li>
-        <li><a href="tools.html">Tools</a></li>
-        <li><a href="#">Pricing</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-      <div class="nav-actions">
-        <button id="theme-toggle" style="background: transparent; border: none; color: var(--muted); font-size: 18px; cursor: pointer; margin-right: 12px; transition: color 0.3s ease;">☼</button>
-        <a href="#" class="btn-yellow" style="border-radius: 30px; padding: 10px 24px; color: #000; font-weight: 700;">Get Started</a>
-        <button id="hamburger" class="hamburger" style="margin-left: 12px;">☰</button>
+  <!-- Top Navigation Bar -->
+  <header class="border-b border-[#282e1c] px-6 py-4 flex items-center justify-between">
+    <div class="flex items-center space-x-6">
+      <div class="text-2xl font-extrabold tracking-tight">
+        <span class="text-white">saha</span><span class="neon-yellow">AI</span>
       </div>
+      <nav class="hidden md:flex text-sm text-gray-400 space-x-2">
+        <span>Dashboard</span>
+        <span>&rarr;</span>
+        <span class="text-gray-200">[Client Name] Product</span>
+        <span>&rarr;</span>
+        <span class="text-white font-medium">Project Status</span>
+      </nav>
     </div>
-  </nav>
 
-  <!-- HERO -->
-  <section class="hero" style="padding: 0; min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; background: #111;">
-    <!-- Left Column -->
-    <div class="hero-left-col" style="padding: 160px 80px 100px 12%; display: flex; flex-direction: column; justify-content: center;">
-      
-      <!-- Tag -->
-      <div style="background: rgba(212, 255, 63, 0.05); border: 1px solid rgba(212, 255, 63, 0.1); color: var(--yellow); font-size: 10px; font-weight: 800; font-family: 'Syne', sans-serif; letter-spacing: 1px; padding: 6px 16px; border-radius: 20px; width: fit-content; margin-bottom: 32px;">EMPOWERING KERALA BUSINESSES</div>
-      
-      <!-- Headline -->
-      <h1 class="hero-title" style="font-size: clamp(48px, 5.5vw, 72px); font-weight: 800; line-height: 1.1; margin-bottom: 24px; color: var(--white);">
-        Helping Small<br>Businesses<br>
-        <span style="color: var(--yellow);">with AI</span>
-      </h1>
-      
-      <!-- Subtext -->
-      <p class="hero-sub" style="font-size: 16px; color: var(--muted); line-height: 1.6; max-width: 460px; margin-bottom: 48px; margin-left: 0;">
-        AI-powered business automation for Kerala's local shops, salons, and service businesses. No tech expertise needed.
-      </p>
-      
-      <!-- Buttons -->
-      <div class="hero-ctas" style="display: flex; gap: 16px; align-items: center; margin-bottom: 80px;">
-        <a href="#" class="btn-yellow" style="border-radius: 30px; padding: 16px 32px; font-size: 16px; display: flex; align-items: center; gap: 8px;">
-          Get Started &rarr;
-        </a>
-        <a href="#" class="btn-outline" style="border-radius: 30px; padding: 16px 32px; font-size: 16px; border-color: rgba(255, 255, 255, 0.1); background: rgba(255, 255, 255, 0.05);">
-          View Tools
-        </a>
+    <div class="flex items-center space-x-4">
+      <div class="w-9 h-9 rounded-full bg-amber-800 flex items-center justify-center text-xs font-bold text-white border border-yellow-500 overflow-hidden">
+        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Client" alt="User Avatar" class="w-full h-full object-cover">
       </div>
-      
-      <!-- Mini status -->
-      <div style="display: flex; align-items: center; gap: 16px;">
-        <div style="display: flex;">
-          <div style="width: 32px; height: 32px; border-radius: 50%; background: #222; border: 2px solid #111; display: flex; align-items: center; justify-content: center; font-size: 12px; z-index: 2;">👤</div>
-          <div style="width: 32px; height: 32px; border-radius: 50%; background: var(--yellow); border: 2px solid #111; margin-left: -12px; display: flex; align-items: center; justify-content: center; color: #000; font-size: 12px; z-index: 1;">⚡</div>
-        </div>
-        <div>
-          <div style="font-weight: 700; font-size: 13px; color: var(--white); font-family: 'Syne', sans-serif; margin-bottom: 2px;">Automation Active</div>
-          <div style="font-size: 11px; color: var(--muted);">247 leads captured today in local shops</div>
-        </div>
-      </div>
-      
+      <button class="bg-neon-yellow text-black font-semibold text-sm px-5 py-2 rounded-full hover:bg-yellow-300 transition-all">
+        Log Out
+      </button>
     </div>
+  </header>
+
+  <!-- Main Dashboard Content -->
+  <main class="max-w-6xl mx-auto px-4 py-8 w-full">
     
-    <!-- Right Column (Background Image) -->
-    <div class="hero-right-col" style="background: linear-gradient(rgba(17,17,17,0.3), rgba(17,17,17,0.8)), url('https://images.unsplash.com/photo-1587280501635-a19e9eb60e73?q=80&w=1470&auto=format&fit=crop') center/cover no-repeat; filter: grayscale(100%) brightness(0.6);">
-    </div>
-  </section>
+    <!-- Title -->
+    <h1 class="text-3xl font-bold text-center text-white mb-8 tracking-wide">
+      Product Development Pipeline
+    </h1>
 
-  <!-- WHY SECTION -->
-  <section class="why-section">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Why Small Businesses Choose sahaAI</h2>
-      </div>
-      <div class="why-grid">
-        <div class="why-card why-card-accent">
-          <div class="why-icon yellow">◆</div>
-          <h3 class="why-name">Elevate Your Business</h3>
-          <p class="why-desc">We bring powerful, tailored AI tools to help your business scale effortlessly.</p>
-        </div>
-        <div class="why-card">
-          <div class="why-icon yellow">◆</div>
-          <h3 class="why-name">Fresh Beginnings</h3>
-          <p class="why-desc">Start from scratch or integrate seamlessly with your existing workflow.</p>
-        </div>
-        <div class="why-card">
-          <div class="why-icon yellow">◆</div>
-          <h3 class="why-name">Rooted in Kerala</h3>
-          <p class="why-desc">Built locally, understanding the unique challenges of regional businesses.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    <!-- 2-Column Grid Layout -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
-  <!-- AUTOMATION SECTION -->
-  <section class="automation-section" style="padding: 100px 0;">
-    <div class="container">
-      <div class="section-header" style="text-align: left; margin-bottom: 60px;">
-        <div style="color: var(--yellow); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; font-family: 'Syne', sans-serif;">OUR EXPERTISE</div>
-        <h2 class="section-title" style="margin-bottom: 24px; font-size: 42px; line-height: 1.1;">Full-Stack Business<br>Automation Services</h2>
-        <p class="section-sub" style="margin: 0; max-width: 600px; color: var(--muted); font-size: 14px;">Modernizing traditional businesses with intelligent systems designed for growth, efficiency, and scale.</p>
-      </div>
-      
-      <div style="display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--border-light); border-radius: 24px; overflow: hidden; background: transparent; gap: 0;">
-        <!-- Top Left -->
-        <div style="padding: 40px; border-right: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
-          <div style="font-size: 24px; color: #333; font-weight: 800; font-family: 'Syne', sans-serif; margin-bottom: 24px;">01</div>
-          <h3 style="font-size: 18px; font-weight: 700; color: var(--white); font-family: 'Syne', sans-serif; margin-bottom: 16px;">Workflow Optimization</h3>
-          <p style="font-size: 13px; color: var(--muted); line-height: 1.6;">Identify and remove bottlenecks in your daily operations automatically with smart task routing and scheduling.</p>
-        </div>
+      <!-- COLUMN 1: Developer Workspace & Raise Ticket Section -->
+      <div class="space-y-6">
         
-        <!-- Top Right -->
-        <div style="padding: 40px; border-bottom: 1px solid var(--border-light);">
-          <div style="font-size: 24px; color: #333; font-weight: 800; font-family: 'Syne', sans-serif; margin-bottom: 24px;">02</div>
-          <h3 style="font-size: 18px; font-weight: 700; color: var(--white); font-family: 'Syne', sans-serif; margin-bottom: 16px;">Customer Engagement</h3>
-          <p style="font-size: 13px; color: var(--muted); line-height: 1.6;">Automated WhatsApp and SMS reminders for appointments and loyalty programs that keep your customers coming back.</p>
-        </div>
-        
-        <!-- Bottom Left -->
-        <div style="padding: 40px; border-right: 1px solid var(--border-light);">
-          <div style="font-size: 24px; color: #333; font-weight: 800; font-family: 'Syne', sans-serif; margin-bottom: 24px;">03</div>
-          <h3 style="font-size: 18px; font-weight: 700; color: var(--white); font-family: 'Syne', sans-serif; margin-bottom: 16px;">Inventory Management</h3>
-          <p style="font-size: 13px; color: var(--muted); line-height: 1.6;">Predictive stock alerts driven by historical sales data so you never run out of your best-selling items.</p>
-        </div>
-        
-        <!-- Bottom Right -->
-        <div style="padding: 40px;">
-          <div style="font-size: 24px; color: #333; font-weight: 800; font-family: 'Syne', sans-serif; margin-bottom: 24px;">04</div>
-          <h3 style="font-size: 18px; font-weight: 700; color: var(--white); font-family: 'Syne', sans-serif; margin-bottom: 16px;">Lead Capture</h3>
-          <p style="font-size: 13px; color: var(--muted); line-height: 1.6;">Turn every social media inquiry into a confirmed booking instantly with our multi-platform AI agents.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+        <!-- Developer Workspace Card -->
+        <div class="card-bg rounded-2xl p-6 shadow-lg">
+          <div class="flex items-center space-x-2 mb-1">
+            <span class="text-yellow-400 text-lg">💻</span>
+            <h2 class="text-xl font-bold text-white">Developer Workspace</h2>
+          </div>
+          <p class="text-xs text-gray-400 mb-6">Current Progress across all phases</p>
 
-  <!-- TOOLS SECTION -->
-  <section class="tools-section">
-    <div class="container">
-      <div class="tools-header" style="align-items: center; justify-content: space-between; display: flex; margin-bottom: 40px;">
+          <div class="space-y-4">
+            <!-- Phase 1 -->
+            <div class="inner-card p-4 rounded-xl">
+              <div class="text-sm font-semibold text-white">Phase 1: Architecture & Setup</div>
+              <div class="text-xs text-gray-400 mb-2">Weight: 20%</div>
+              <div class="w-full bg-gray-800 h-2 rounded-full overflow-hidden">
+                <div class="bg-yellow-400 h-full w-[20%]"></div>
+              </div>
+            </div>
+
+            <!-- Phase 2 -->
+            <div class="inner-card p-4 rounded-xl">
+              <div class="text-sm font-semibold text-white">Phase 2: Half of the project Done</div>
+              <div class="text-xs text-gray-400 mb-2">Weight: 20%</div>
+              <div class="w-full bg-gray-800 h-2 rounded-full overflow-hidden">
+                <div class="bg-yellow-400 h-full w-[10%]"></div>
+              </div>
+            </div>
+
+            <!-- Phase 3 -->
+            <div class="inner-card p-4 rounded-xl">
+              <div class="text-sm font-semibold text-white">Phase 3: Almost Finished</div>
+              <div class="text-xs text-gray-400 mb-2">Weight: 30%</div>
+              <div class="w-full bg-gray-800 h-2 rounded-full overflow-hidden">
+                <div class="bg-yellow-400 h-full w-[30%]"></div>
+              </div>
+            </div>
+
+            <!-- Phase 4 -->
+            <div class="inner-card p-4 rounded-xl">
+              <div class="text-sm font-semibold text-white">Phase 4: Completed</div>
+              <div class="text-xs text-gray-400 mb-2">Weight: 30%</div>
+              <div class="w-full bg-gray-800 h-2 rounded-full overflow-hidden">
+                <div class="bg-yellow-400 h-full w-[15%]"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- NEW: Raise a Ticket / Add Remark Section -->
+        <div class="card-bg rounded-2xl p-6 shadow-lg border border-yellow-500/20">
+          <div class="flex items-center space-x-2 mb-1">
+            <span class="text-yellow-400 text-lg">🎟️</span>
+            <h2 class="text-xl font-bold text-white">Raise a Ticket / Add Remark</h2>
+          </div>
+          <p class="text-xs text-gray-400 mb-4">Have feedback, queries, or custom requests for developers?</p>
+
+          <form onsubmit="event.preventDefault(); alert('Ticket submitted successfully!');" class="space-y-4">
+            <div>
+              <label class="block text-xs font-semibold text-gray-300 mb-1">Select Phase / Subject</label>
+              <select class="w-full inner-card text-xs text-gray-200 rounded-lg p-2.5 outline-none focus:border-yellow-400">
+                <option>General Feedback / Remark</option>
+                <option>Phase 1: Architecture & Setup</option>
+                <option>Phase 2: Half of the project Done</option>
+                <option>Phase 3: Almost Finished</option>
+                <option>Phase 4: Completed</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-gray-300 mb-1">Your Remark / Details</label>
+              <textarea rows="3" placeholder="Type your concerns, changes requested, or remarks here..." class="w-full inner-card text-xs text-gray-200 rounded-lg p-2.5 outline-none focus:border-yellow-400 resize-none"></textarea>
+            </div>
+
+            <button type="submit" class="w-full bg-neon-yellow hover:bg-yellow-300 text-black font-bold text-xs py-3 rounded-lg transition-all shadow-md">
+              Submit Ticket
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+      <!-- COLUMN 2: Project Overview & Chart -->
+      <div class="card-bg rounded-2xl p-6 shadow-lg flex flex-col justify-between">
         <div>
-          <div style="color: var(--yellow); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; font-family: 'Syne', sans-serif;">COMMUNITY DRIVEN</div>
-          <h2 class="section-title" style="margin: 0; font-size: 36px;">Open Source AI Tools</h2>
-        </div>
-        <a href="#" class="tool-link" style="color: var(--yellow); text-decoration: none; font-weight: 600; font-size: 14px;">View Full Directory ↗</a>
-      </div>
-      
-      <div class="tools-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
-        
-        <!-- Card 1 -->
-        <div class="tool-card" style="background: #252422; border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 24px; padding: 32px; display: flex; flex-direction: column; height: 100%;">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px;">
-            <div style="color: var(--white); font-size: 24px;">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
-            </div>
-            <span style="background: var(--yellow); color: #000; font-size: 9px; font-weight: 800; padding: 4px 10px; border-radius: 12px; font-family: 'Syne', sans-serif;">OPEN SOURCE</span>
+          <div class="flex items-center space-x-2 mb-6">
+            <span class="text-yellow-400 text-lg">📊</span>
+            <h2 class="text-xl font-bold text-white">Project Overview</h2>
           </div>
-          <h3 style="font-family: 'Syne', sans-serif; font-size: 20px; font-weight: 700; color: var(--white); margin-bottom: 12px;">Marketing & Support</h3>
-          <p style="font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 32px; flex-grow: 1;">Ready-to-use models for automated social media replies and customer ticket routing.</p>
-          <a href="#" style="color: var(--yellow); text-decoration: none; font-size: 13px; font-weight: 700; font-family: 'DM Sans', sans-serif;">Explore Tools &rarr;</a>
-        </div>
-        
-        <!-- Card 2 -->
-        <div class="tool-card" style="background: #252422; border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 24px; padding: 32px; display: flex; flex-direction: column; height: 100%;">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px;">
-            <div style="color: var(--white); font-size: 24px;">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"></rect><circle cx="12" cy="5" r="2"></circle><path d="M12 7v4"></path><line x1="8" y1="16" x2="8" y2="16"></line><line x1="16" y1="16" x2="16" y2="16"></line></svg>
+
+          <!-- Circular Arc Progress SVG -->
+          <div class="relative flex flex-col items-center justify-center my-8">
+            <svg class="w-52 h-52 transform -rotate-90" viewBox="0 0 120 120">
+              <circle cx="60" cy="60" r="48" stroke="#1f2615" stroke-width="10" fill="transparent" />
+              <circle cx="60" cy="60" r="48" stroke="#d4f62e" stroke-width="10" fill="transparent"
+                      stroke-dasharray="301.59" stroke-dashoffset="240" stroke-linecap="round" />
+            </svg>
+            <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+              <span class="text-4xl font-extrabold text-white">0%</span>
+              <span class="text-xs text-gray-400 max-w-[120px] mt-1">Total Project Completion</span>
             </div>
-            <span style="background: var(--yellow); color: #000; font-size: 9px; font-weight: 800; padding: 4px 10px; border-radius: 12px; font-family: 'Syne', sans-serif;">OPEN SOURCE</span>
           </div>
-          <h3 style="font-family: 'Syne', sans-serif; font-size: 20px; font-weight: 700; color: var(--white); margin-bottom: 12px;">Automation</h3>
-          <p style="font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 32px; flex-grow: 1;">Scripts and workflows to connect your point-of-sale system with modern AI agents.</p>
-          <a href="#" style="color: var(--yellow); text-decoration: none; font-size: 13px; font-weight: 700; font-family: 'DM Sans', sans-serif;">Explore Tools &rarr;</a>
-        </div>
-        
-        <!-- Card 3 -->
-        <div class="tool-card" style="background: #252422; border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 24px; padding: 32px; display: flex; flex-direction: column; height: 100%;">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px;">
-            <div style="color: var(--white); font-size: 24px;">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path><line x1="3" y1="6" x2="10" y2="6"></line><line x1="3" y1="12" x2="8" y2="12"></line></svg>
+
+          <!-- Legend Breakdown -->
+          <div class="mt-8 space-y-3 text-sm text-gray-300">
+            <div class="text-gray-400 font-semibold mb-2">Total Phase Progress</div>
+            <div class="flex items-center space-x-3">
+              <span class="w-3 h-3 rounded-full bg-yellow-400 inline-block"></span>
+              <span>Phase 1 Progress (20%)</span>
             </div>
-            <span style="background: var(--yellow); color: #000; font-size: 9px; font-weight: 800; padding: 4px 10px; border-radius: 12px; font-family: 'Syne', sans-serif;">OPEN SOURCE</span>
+            <div class="flex items-center space-x-3">
+              <span class="w-3 h-3 rounded-full bg-yellow-500 inline-block"></span>
+              <span>Phase 2 Progress (20%)</span>
+            </div>
+            <div class="flex items-center space-x-3">
+              <span class="w-3 h-3 rounded-full bg-yellow-800 inline-block"></span>
+              <span>Phase 3 Integration (30%)</span>
+            </div>
+            <div class="flex items-center space-x-3">
+              <span class="w-3 h-3 rounded-full bg-gray-600 inline-block"></span>
+              <span>Phase 4 Handover (30%)</span>
+            </div>
           </div>
-          <h3 style="font-family: 'Syne', sans-serif; font-size: 20px; font-weight: 700; color: var(--white); margin-bottom: 12px;">Content Generation</h3>
-          <p style="font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 32px; flex-grow: 1;">Create beautiful product descriptions and promotional banners in Malayalam in seconds.</p>
-          <a href="#" style="color: var(--yellow); text-decoration: none; font-size: 13px; font-weight: 700; font-family: 'DM Sans', sans-serif;">Explore Tools &rarr;</a>
         </div>
       </div>
 
-      <div class="how-grid" style="margin-top: 60px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px;">
-        <div class="how-step" style="padding: 0; background: transparent; border: none;">
-          <div class="how-num" style="font-size: 56px; color: #333; font-weight: 800; margin-bottom: 16px; opacity: 1; line-height: 1;">01</div>
-          <h3 class="how-title" style="font-size: 18px; font-weight: 700; margin-bottom: 12px; color: var(--white);">Onboard Your Business</h3>
-          <p class="how-desc" style="font-size: 13px; color: var(--muted); line-height: 1.6;">Simple 5-minute setup where we learn about your specific shop type and daily routine.</p>
-        </div>
-        <div class="how-step" style="padding: 0; background: transparent; border: none;">
-          <div class="how-num" style="font-size: 56px; color: #333; font-weight: 800; margin-bottom: 16px; opacity: 1; line-height: 1;">02</div>
-          <h3 class="how-title" style="font-size: 18px; font-weight: 700; margin-bottom: 12px; color: var(--white);">Activate AI Agents</h3>
-          <p class="how-desc" style="font-size: 13px; color: var(--muted); line-height: 1.6;">Choose the automation modules you need—from customer support to stock alerts.</p>
-        </div>
-        <div class="how-step" style="padding: 0; background: transparent; border: none;">
-          <div class="how-num" style="font-size: 56px; color: #333; font-weight: 800; margin-bottom: 16px; opacity: 1; line-height: 1;">03</div>
-          <h3 class="how-title" style="font-size: 18px; font-weight: 700; margin-bottom: 12px; color: var(--white);">Watch it Work</h3>
-          <p class="how-desc" style="font-size: 13px; color: var(--muted); line-height: 1.6;">Track performance through our intuitive dashboard and focus on what you do best.</p>
-        </div>
-      </div>
     </div>
-  </section>
+  </main>
 
-  <!-- PRICING SECTION -->
-  <section class="pricing-section">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Transparent Pricing for Everyone</h2>
-      </div>
-      <div class="pricing-grid">
-        <div class="plan-card plan-featured" style="text-align: center; border-radius: 24px; padding: 40px; box-shadow: 0 0 20px rgba(212, 255, 63, 0.15); max-width: 480px; margin: 0 auto; width: 100%;">
-          <div style="color: var(--yellow); font-size: 11px; font-weight: 700; text-transform: uppercase; margin-bottom: 16px; letter-spacing: 1px; font-family: 'Syne', sans-serif;">ALL ACCESS PASS</div>
-          <div class="plan-price" style="margin: 10px 0 30px;">
-            <span style="font-size: 48px; font-weight: 800; color: var(--white); font-family: 'Syne', sans-serif;">₹499</span><span style="font-size: 16px; color: var(--muted); font-weight: 400; font-family: 'DM Sans', sans-serif;">/month</span>
-          </div>
-          <ul style="list-style: none; text-align: left; margin: 0 auto 30px; display: inline-block; padding: 0;">
-            <li style="margin-bottom: 12px; padding-left: 28px; position: relative; font-size: 13px; color: #ccc;">
-              <span style="position: absolute; left: 0; top: -1px; color: var(--bg); background: var(--yellow); border-radius: 50%; width: 16px; height: 16px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: bold;">✓</span> Unlimited AI Automations
-            </li>
-            <li style="margin-bottom: 12px; padding-left: 28px; position: relative; font-size: 13px; color: #ccc;">
-              <span style="position: absolute; left: 0; top: -1px; color: var(--bg); background: var(--yellow); border-radius: 50%; width: 16px; height: 16px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: bold;">✓</span> Malayalam Language Support
-            </li>
-            <li style="margin-bottom: 12px; padding-left: 28px; position: relative; font-size: 13px; color: #ccc;">
-              <span style="position: absolute; left: 0; top: -1px; color: var(--bg); background: var(--yellow); border-radius: 50%; width: 16px; height: 16px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: bold;">✓</span> 24/7 Priority Business Support
-            </li>
-            <li style="margin-bottom: 12px; padding-left: 28px; position: relative; font-size: 13px; color: #ccc;">
-              <span style="position: absolute; left: 0; top: -1px; color: var(--bg); background: var(--yellow); border-radius: 50%; width: 16px; height: 16px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: bold;">✓</span> Advanced Lead Analytics
-            </li>
-          </ul>
-          <a href="#" class="plan-btn plan-btn-yellow" style="border-radius: 30px; padding: 16px; font-size: 15px; margin-bottom: 16px; width: 100%; box-sizing: border-box; display: block;">Claim Your Access</a>
-          <div style="font-size: 11px; color: var(--muted);">No hidden fees. Cancel anytime.</div>
-        </div>
-      </div>
+  <!-- Footer Bar -->
+  <footer class="border-t border-[#282e1c] px-6 py-4 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-400 mt-10">
+    <div class="text-base font-extrabold mb-2 sm:mb-0">
+      <span class="text-white">saha</span><span class="neon-yellow">AI</span>
     </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-top" style="grid-template-columns: 2fr 1fr 1fr;">
-        <div class="footer-brand">
-          <span class="logo" style="color: var(--white);">sahaAI / സഹായി</span>
-          <p class="footer-tagline" style="margin-top: 10px; color: var(--yellow);">കേരളത്തിലെ ചെറുകിട വ്യാപാരികൾക്കായി ഒരു AI<br>സഹായി.</p>
-        </div>
-        <div class="footer-links-group">
-          <span class="flg-title">COMPANY</span>
-          <a href="#">HOW IT WORKS</a>
-          <a href="#">TOOLS</a>
-          <a href="#">PRICING</a>
-        </div>
-        <div class="footer-links-group">
-          <span class="flg-title">LEGAL</span>
-          <a href="#">ABOUT</a>
-          <a href="#">CONTACT</a>
-          <a href="#">PRIVACY POLICY</a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>&copy; 2024 SAHAAI (സഹായി). ALL RIGHTS RESERVED.</span>
-      </div>
+    <div class="flex space-x-6">
+      <a href="#" class="hover:text-yellow-400 transition">Support</a>
+      <a href="#" class="hover:text-yellow-400 transition">Account Settings</a>
+      <a href="#" class="hover:text-yellow-400 transition">Privacy Policy</a>
     </div>
   </footer>
 
-  <!-- Link your JS -->
-  <script src="script.js"></script>
 </body>
 </html>
