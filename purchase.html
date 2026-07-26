@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sahaAI - Request & Purchase Product</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-color: #0b0d08;
+      color: #e2e8f0;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    .neon-yellow {
+      color: #d4f62e;
+    }
+    .bg-neon-yellow {
+      background-color: #d4f62e;
+    }
+    .border-neon-yellow {
+      border-color: #d4f62e;
+    }
+    .card-bg {
+      background-color: #12150e;
+      border: 1px solid #282e1c;
+    }
+    .inner-card {
+      background-color: #181d13;
+      border: 1px solid #2f3721;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between">
+
+  <!-- Top Navigation Bar -->
+  <header class="border-b border-[#282e1c] px-6 py-4 flex items-center justify-between">
+    <div class="flex items-center space-x-6">
+      <div class="text-2xl font-extrabold tracking-tight">
+        <span class="text-white">saha</span><span class="neon-yellow">AI</span>
+      </div>
+    </div>
+    <div class="text-xs text-gray-400">
+      Need Help? <a href="#" class="neon-yellow hover:underline">Contact Support</a>
+    </div>
+  </header>
+
+  <!-- Main Purchase Request Form Container -->
+  <main class="max-w-4xl mx-auto px-4 py-12 w-full">
+    
+    <!-- Top Header Title -->
+    <div class="text-center mb-10">
+      <h1 class="text-3xl md:text-4xl font-bold text-white tracking-wide">
+        Request Form – <span class="neon-yellow">Fill Out in 30 Seconds</span>
+      </h1>
+      <p class="text-xs md:text-sm text-gray-400 mt-2 max-w-xl mx-auto">
+        Only the essentials – just a few fields, so you can quickly initiate your AI automation product setup.
+      </p>
+    </div>
+
+    <!-- Request Form Box (Inspired by Image Layout) -->
+    <div class="card-bg rounded-2xl p-6 md:p-10 shadow-2xl border border-[#2f3721]">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+        
+        <!-- Left Side: Product Intro Text -->
+        <div class="md:col-span-5 space-y-6 md:border-r border-[#282e1c] md:pr-8">
+          <h2 class="text-2xl md:text-3xl font-extrabold text-white leading-tight">
+            Book Your Custom <br><span class="neon-yellow">sahaAI Solution</span>
+          </h2>
+          
+          <div class="space-y-3">
+            <p class="text-xs font-semibold text-gray-300 uppercase tracking-wider">
+              Ready to elevate your business with AI?
+            </p>
+            <p class="text-xs text-gray-400 leading-relaxed">
+              We'll help you build, integrate, and deploy tailored AI workflows. Submit your details – we will immediately set up your dedicated Client Dashboard.
+            </p>
+          </div>
+
+          <div class="pt-4 border-t border-[#282e1c]">
+            <div class="text-xs text-gray-400 flex items-center space-x-2">
+              <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+              <span>Instant Dashboard Access on Submission</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side: Clean Form Fields -->
+        <div class="md:col-span-7">
+          <form onsubmit="event.preventDefault(); window.location.href='index.html';" class="space-y-5">
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-semibold text-gray-300 mb-1">First Name*</label>
+                <input type="text" required placeholder="John" 
+                       class="w-full inner-card text-xs text-white rounded-lg p-3 outline-none border border-transparent focus:border-neon-yellow transition">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-gray-300 mb-1">Last Name*</label>
+                <input type="text" required placeholder="Doe" 
+                       class="w-full inner-card text-xs text-white rounded-lg p-3 outline-none border border-transparent focus:border-neon-yellow transition">
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-gray-300 mb-1">Email Address*</label>
+              <input type="email" required placeholder="john@company.com" 
+                     class="w-full inner-card text-xs text-white rounded-lg p-3 outline-none border border-transparent focus:border-neon-yellow transition">
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-gray-300 mb-1">Product Type / Service Solution*</label>
+              <select required class="w-full inner-card text-xs text-gray-300 rounded-lg p-3 outline-none border border-transparent focus:border-neon-yellow transition">
+                <option value="" disabled selected>Select AI Solution Type</option>
+                <option>Full-Stack Business Automation</option>
+                <option>Custom LLM Integration</option>
+                <option>Workflow Optimization Pipeline</option>
+                <option>Content & Marketing AI Agent</option>
+              </select>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-semibold text-gray-300 mb-1">Preferred Kickoff Date</label>
+                <input type="date" 
+                       class="w-full inner-card text-xs text-gray-300 rounded-lg p-3 outline-none border border-transparent focus:border-neon-yellow transition">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-gray-300 mb-1">Preferred Time</label>
+                <input type="time" 
+                       class="w-full inner-card text-xs text-gray-300 rounded-lg p-3 outline-none border border-transparent focus:border-neon-yellow transition">
+              </div>
+            </div>
+
+            <button type="submit" 
+                    class="w-full bg-neon-yellow hover:bg-yellow-300 text-black font-bold text-sm py-3.5 rounded-lg transition-all shadow-lg mt-2">
+              Purchase & Access Dashboard &rarr;
+            </button>
+            
+          </form>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer Bar -->
+  <footer class="border-t border-[#282e1c] px-6 py-4 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-400 mt-10">
+    <div class="text-base font-extrabold mb-2 sm:mb-0">
+      <span class="text-white">saha</span><span class="neon-yellow">AI</span>
+    </div>
+    <div class="flex space-x-6">
+      <a href="#" class="hover:text-yellow-400 transition">Terms</a>
+      <a href="#" class="hover:text-yellow-400 transition">Privacy Policy</a>
+    </div>
+  </footer>
+
+</body>
+</html>
