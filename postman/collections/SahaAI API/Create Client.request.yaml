@@ -1,0 +1,23 @@
+$kind: http-request
+name: Create Client
+description: ""
+url: http://localhost:8000/api/clients
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"name\": \"Alpha Retailers\",\r
+
+    \    \"business_type\": \"E-commerce\",\r
+
+    \    \"date_of_joining\": \"2026-07-29\",\r
+
+    \    \"developer_id\": 3,\r
+
+    \    \"email\": \"alpha@retail.com\",\r
+
+    \    \"password\": \"secure123\"\r
+
+    }"
+order: 1785348157620

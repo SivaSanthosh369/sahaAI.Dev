@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sahaAI - Client Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-color: #0b0d08;
+            color: #e2e8f0;
+            font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+        }
+        .neon-yellow { color: #d4f62e; }
+        .bg-neon-yellow { background-color: #d4f62e; }
+        .border-neon-yellow { border-color: #d4f62e; }
+        .card-bg {
+            background-color: #12150e;
+            border: 1px solid #282e1c;
+        }
+        .inner-card {
+            background-color: #181d13;
+            border: 1px solid #2f3721;
+        }
+        .status-pending { color: #fbbf24; }
+        .status-contacted { color: #60a5fa; }
+        .status-converted { color: #34d399; }
+        .status-lost { color: #f87171; }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header class="border-b border-[#282e1c] px-6 py-4 flex items-center justify-between">
+        <div class="text-2xl font-extrabold tracking-tight">
+            <span class="text-white">saha</span><span class="neon-yellow">AI</span>
+        </div>
+        <div class="flex items-center space-x-4">
+            <span id="clientName" class="text-sm text-gray-300"></span>
+            <button onclick="logout()" class="text-xs text-gray-400 hover:text-red-400 transition">Logout</button>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 py-8">
+        <!-- Welcome -->
+        <div class="mb-8">
+            <h1 class="text-2xl font-bold text-white">Welcome, <span id="welcomeName" class="neon-yellow"></span></h1>
+            <p class="text-gray-400 text-sm mt-1">Your inquiry history</p>
+        </div>
+
+        <!-- Inquiries Table -->
+        <div class="card-bg rounded-2xl p-6 border border-[#2f3721] overflow-x-auto">
+            <table class="w-full text-sm">
+                <thead>
+                    <tr class="border-b border-[#282e1c] text-left text-xs text-gray-400 uppercase">
+                        <th class="pb-3 pr-4">#</th>
+                        <th class="pb-3 pr-4">Customer</th>
+                        <th class="pb-3 pr-4">Mobile</th>
+                        <th class="pb-3 pr-4">Service</th>
+                        <th class="pb-3 pr-4">Status</th>
+                        <th class="pb-3">Submitted</th>
+                    </tr>
+                </thead>
+                <tbody id="inquiriesTable">
+                    <tr>
+                        <td colspan="6" class="text-center text-gray-500 py-8">Loading inquiries...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <script>
+        const API_BASE = window.location.port === '8000'
+            ? ''
+            : `${window.location.protocol}//${window.location.hostname}:8000`;
+
+        async function checkSession() {
+            try {
+                const response = await fetch(`${API_BASE}/api/auth/session`, {
+                    credentials: 'include'
+                });
+                const data = await response.json();
+                
+                if (!data.loggedIn) {
+                    window.location.href = 'login-client.html';
+                    return null;
+                }
+                
+                return data.client;
+            } catch (error) {
+                window.location.href = 'login-client.html';
+                return null;
+            }
+        }
+
+        async function loadInquiries() {
+            try {
+                const response = await fetch(`${API_BASE}/api/inquiries`, {
+                    credentials: 'include'
+                });
+                const data = await response.json();
+                
+                const tbody = document.getElementById('inquiriesTable');
+                
+                if (!data.length) {
+                    tbody.innerHTML = `
+                        <tr>
+                            <td colspan="6" class="text-center text-gray-500 py-8">No inquiries yet</td>
+                        </tr>
+                    `;
+                    return;
+                }
+                
+                tbody.innerHTML = data.map((inquiry, index) => `
+                    <tr class="border-b border-[#1a1f14] hover:bg-[#181d13] transition">
+                        <td class="py-3 pr-4 text-gray-400">${index + 1}</td>
+                        <td class="py-3 pr-4">
+                            <div class="font-medium text-white">${inquiry.first_name} ${inquiry.last_name}</div>
+                            <div class="text-xs text-gray-500">${inquiry.email || 'No email'}</div>
+                        </td>
+                        <td class="py-3 pr-4 text-gray-300">${inquiry.mobile}</td>
+                        <td class="py-3 pr-4 text-gray-300 text-xs">${inquiry.service_type}</td>
+                        <td class="py-3 pr-4">
+                            <span class="status-${inquiry.status} text-xs font-semibold uppercase">${inquiry.status}</span>
+                        </td>
+                        <td class="py-3 text-gray-400 text-xs">${new Date(inquiry.created_at).toLocaleDateString()}</td>
+                    </tr>
+                `).join('');
+            } catch (error) {
+                document.getElementById('inquiriesTable').innerHTML = `
+                    <tr>
+                        <td colspan="6" class="text-center text-red-400 py-8">Failed to load inquiries</td>
+                    </tr>
+                `;
+            }
+        }
+
+        async function logout() {
+            try {
+                await fetch(`${API_BASE}/api/auth/logout`, {
+                    method: 'POST',
+                    credentials: 'include'
+                });
+                window.location.href = 'login-client.html';
+            } catch (error) {
+                window.location.href = 'login-client.html';
+            }
+        }
+
+        // Initialize
+        async function init() {
+            const client = await checkSession();
+            if (client) {
+                document.getElementById('clientName').textContent = client.name;
+                document.getElementById('welcomeName').textContent = client.name;
+                await loadInquiries();
+            }
+        }
+
+        init();
+    </script>
+
+</body>
+</html>

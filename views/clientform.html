@@ -103,10 +103,16 @@
             </div>
 
             <div>
-              <label class="block text-xs font-semibold text-gray-300 mb-1">Email Address*</label>
-              <input type="email" required placeholder="john@company.com" 
+              <label class="block text-xs font-semibold text-gray-300 mb-1">Email Address</label>
+              <input type="email"  placeholder="john@company.com" 
                      class="w-full inner-card text-xs text-white rounded-lg p-3 outline-none border border-transparent focus:border-neon-yellow transition">
             </div>
+            <div>
+              <label class="block text-xs font-semibold text-gray-300 mb-1">Mobile Number*</label>
+              <input type="tel" maxlength="10" pattern="[0-9]{10}" placeholder="Please enter your 10-digit mobile number" required
+                     class="w-full inner-card text-xs text-white rounded-lg p-3 outline-none border border-transparent focus:border-neon-yellow transition">
+            </div>
+
 
             <div>
               <label class="block text-xs font-semibold text-gray-300 mb-1">Product Type / Service Solution*</label>
@@ -119,7 +125,7 @@
               </select>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <!-- <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label class="block text-xs font-semibold text-gray-300 mb-1">Preferred Kickoff Date</label>
                 <input type="date" 
@@ -130,7 +136,7 @@
                 <input type="time" 
                        class="w-full inner-card text-xs text-gray-300 rounded-lg p-3 outline-none border border-transparent focus:border-neon-yellow transition">
               </div>
-            </div>
+            </div> -->
 
             <button type="submit" 
                     class="w-full bg-neon-yellow hover:bg-yellow-300 text-black font-bold text-sm py-3.5 rounded-lg transition-all shadow-lg mt-2">
