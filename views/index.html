@@ -1,10 +1,13 @@
 <!doctype html>
-
 <html class="dark" lang="en">
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>sahaAI | Tools Directory</title>
+    <title>sahaAI | How it Works</title>
+    <meta
+      name="description"
+      content="sahaAI helps small businesses across Kerala automate customer replies, bookings, and promotions — no technical knowledge needed. See how it works."
+    />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;700;800;900&family=Manrope:wght@400;500;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
@@ -98,11 +101,7 @@
             fontSize: {
               h1: [
                 "72px",
-                {
-                  lineHeight: "1.1",
-                  letterSpacing: "-0.04em",
-                  fontWeight: "800",
-                },
+                { lineHeight: "1.1", letterSpacing: "-0.04em", fontWeight: "800" },
               ],
               "label-caps": [
                 "12px",
@@ -110,11 +109,7 @@
               ],
               h2: [
                 "48px",
-                {
-                  lineHeight: "1.2",
-                  letterSpacing: "-0.02em",
-                  fontWeight: "700",
-                },
+                { lineHeight: "1.2", letterSpacing: "-0.02em", fontWeight: "700" },
               ],
               h3: ["32px", { lineHeight: "1.2", fontWeight: "700" }],
               "body-md": ["16px", { lineHeight: "1.5", fontWeight: "400" }],
@@ -142,43 +137,107 @@
         box-shadow: 4px 4px 0px 0px #eee90b;
       }
       .material-symbols-outlined {
-        font-variation-settings:
-          "FILL" 0,
-          "wght" 400,
-          "GRAD" 0,
-          "opsz" 24;
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
       }
-      .scrollbar-hide::-webkit-scrollbar {
-        display: none;
+
+      /* Hero glow */
+      .hero-glow {
+        background: radial-gradient(
+          ellipse 80% 50% at 50% -10%,
+          rgba(249, 243, 33, 0.12),
+          transparent
+        );
       }
-      .scrollbar-hide {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
+
+      /* Step connector line */
+      .step-line {
+        background: linear-gradient(to bottom, #f9f321, rgba(249, 243, 33, 0.1));
+      }
+
+      /* Fade-in-up animation */
+      @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(32px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+      .animate-fade-in { animation: fadeInUp 0.7s ease-out both; }
+      .delay-1 { animation-delay: 0.1s; }
+      .delay-2 { animation-delay: 0.25s; }
+      .delay-3 { animation-delay: 0.4s; }
+
+      /* Badge */
+      .badge-yellow {
+        background: rgba(249, 243, 33, 0.12);
+        border: 1px solid rgba(249, 243, 33, 0.35);
+        color: #f9f321;
+      }
+
+      /* Problem card hover */
+      .problem-card {
+        transition: border-color 0.3s, transform 0.3s;
+      }
+      .problem-card:hover {
+        border-color: rgba(249, 243, 33, 0.4);
+        transform: translateY(-4px);
+      }
+
+      /* Step number circle */
+      .step-num {
+        background: #f9f321;
+        color: #141408;
+        font-family: 'Epilogue', sans-serif;
+        font-weight: 900;
+        font-size: 1.25rem;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        box-shadow: 0 0 0 6px rgba(249, 243, 33, 0.1);
+      }
+
+      /* Floating bubble animation */
+      @keyframes floatBubble {
+        0%, 100% { transform: translateY(0px); }
+        50%       { transform: translateY(-10px); }
+      }
+      .float-anim      { animation: floatBubble 3s ease-in-out infinite; }
+      .float-anim-slow { animation: floatBubble 4.5s ease-in-out infinite; animation-delay: 0.7s; }
+
+      /* Scroll reveal */
+      .reveal {
+        opacity: 0;
+        transform: translateY(28px);
+        transition: opacity 0.65s ease, transform 0.65s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
       }
     </style>
   </head>
   <body class="font-body-md wavy-contour">
-    <!-- TopNavBar -->
+
+    <!-- ============================================================ -->
+    <!--  TOP NAV BAR  (exact design system match from index.html)    -->
+    <!-- ============================================================ -->
     <header
       class="fixed top-0 left-0 right-0 z-50 bg-neutral-950/80 backdrop-blur-xl border-b border-neutral-800"
     >
-      <div
-        class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center"
-      >
-        <div
-          class="text-2xl font-black text-[#F9F321] tracking-tighter font-h3"
-        >
+      <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <div class="text-2xl font-black text-[#F9F321] tracking-tighter font-h3">
           sahaAI
         </div>
         <nav class="hidden md:flex items-center gap-8">
           <a
-            class="text-neutral-400 font-medium hover:text-[#F9F321] hover:scale-105 transition-all duration-200 font-label-caps"
+            class="text-[#F9F321] border-b-2 border-[#F9F321] pb-1 font-medium hover:scale-105 transition-all duration-200 font-label-caps"
             href="index.html"
             >How it Works</a
           >
           <a
-            class="text-[#F9F321] border-b-2 border-[#F9F321] pb-1 font-medium hover:scale-105 transition-all duration-200 font-label-caps"
-            href="#"
+            class="text-neutral-400 font-medium hover:text-[#F9F321] hover:scale-105 transition-all duration-200 font-label-caps"
+            href="tools.html"
             >Tools</a
           >
           <a
@@ -198,9 +257,7 @@
           >
         </nav>
         <div class="flex items-center gap-4">
-          <button
-            class="text-neutral-400 hover:text-[#F9F321] transition-colors"
-          >
+          <button class="text-neutral-400 hover:text-[#F9F321] transition-colors">
             <span class="material-symbols-outlined">light_mode</span>
           </button>
           <a
@@ -212,307 +269,414 @@
         </div>
       </div>
     </header>
-    <main class="pt-32 pb-24 px-6 max-w-7xl mx-auto">
-      <!-- Hero Section -->
-      <section class="mb-16">
-        <h1 class="font-h1 text-h1 text-primary mb-4">Our AI Tools</h1>
-        <p class="font-body-lg text-body-lg text-secondary max-w-2xl">
-          Powerful, community-driven automation for your business. Leverage the
-          edge of collective intelligence.
+
+    <!-- ============================================================ -->
+    <!--  MAIN CONTENT                                                 -->
+    <!-- ============================================================ -->
+    <main class="pt-32 pb-24 overflow-x-hidden">
+
+      <!-- ── 1. HERO ────────────────────────────────────────────── -->
+      <section class="hero-glow px-6 max-w-5xl mx-auto text-center py-20">
+        <div class="animate-fade-in">
+          <span class="badge-yellow inline-block px-4 py-1.5 rounded-full font-label-caps text-xs mb-6 uppercase tracking-widest">
+            AI-Powered Business Automation — Made for Kerala
+          </span>
+        </div>
+        <h1 class="font-h1 text-[clamp(2.5rem,7vw,72px)] leading-tight font-extrabold text-white mb-6 animate-fade-in delay-1">
+          Your Business.<br />
+          <span class="text-[#F9F321]">On Autopilot.</span>
+        </h1>
+        <p class="font-body-lg text-body-lg text-secondary max-w-2xl mx-auto mb-10 animate-fade-in delay-2">
+          sahaAI (സഹായി) is a simple digital assistant for your shop, salon, or service.
+          It answers customers, takes bookings, and promotes your business — 24 hours a day —
+          without you needing to do a single thing.
         </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in delay-3">
+          <a
+            href="clientform.html"
+            class="bg-[#F9F321] text-black px-10 py-4 rounded-full font-black text-base hover:scale-105 active:scale-95 transition-all font-label-caps hard-shadow"
+          >
+            Start for Free
+          </a>
+          <a
+            href="#how-it-works"
+            class="border border-outline-variant text-on-surface px-10 py-4 rounded-full font-bold text-base hover:border-[#F9F321] hover:text-[#F9F321] transition-all font-label-caps"
+          >
+            See How It Works ↓
+          </a>
+        </div>
+
+        <!-- Floating WhatsApp-style chat bubbles -->
+        <div class="mt-16 relative flex flex-col sm:flex-row items-center justify-center gap-5 sm:gap-6 select-none pointer-events-none">
+          <div class="float-anim bg-surface-container-low border border-outline-variant rounded-xl px-5 py-3 text-left max-w-xs shadow-xl">
+            <p class="text-xs text-outline font-label-caps mb-1 uppercase tracking-widest">Customer · 10:47 PM</p>
+            <p class="text-on-surface text-sm">"What are your working hours? 🕙"</p>
+          </div>
+          <div
+            class="w-12 h-12 rounded-full bg-[#F9F321] flex items-center justify-center shadow-lg float-anim-slow"
+            style="box-shadow: 0 0 30px rgba(249,243,33,0.3);"
+          >
+            <span class="material-symbols-outlined text-black !text-2xl">smart_toy</span>
+          </div>
+          <div class="float-anim bg-[#F9F321]/10 border border-[#F9F321]/30 rounded-xl px-5 py-3 text-left max-w-xs shadow-xl">
+            <p class="text-xs text-[#F9F321] font-label-caps mb-1 uppercase tracking-widest">sahaAI · Instantly</p>
+            <p class="text-white text-sm">"We're open 9 AM – 9 PM! Shall I book you a slot? 😊"</p>
+          </div>
+        </div>
       </section>
-      <!-- Category Filter -->
-      <nav
-        class="flex items-center gap-4 mb-12 overflow-x-auto scrollbar-hide pb-4"
-      >
-        <button
-          class="whitespace-nowrap px-6 py-2 rounded-full bg-[#F9F321] text-black font-bold font-label-caps transition-all"
-        >
-          All
-        </button>
-        <button
-          class="whitespace-nowrap px-6 py-2 rounded-full border-2 border-outline/30 text-on-surface font-bold font-label-caps hover:border-[#F9F321] transition-all"
-        >
-          Marketing & Support
-        </button>
-        <button
-          class="whitespace-nowrap px-6 py-2 rounded-full border-2 border-outline/30 text-on-surface font-bold font-label-caps hover:border-[#F9F321] transition-all"
-        >
-          Automation
-        </button>
-        <button
-          class="whitespace-nowrap px-6 py-2 rounded-full border-2 border-outline/30 text-on-surface font-bold font-label-caps hover:border-[#F9F321] transition-all"
-        >
-          Content Generation
-        </button>
-        <button
-          class="whitespace-nowrap px-6 py-2 rounded-full border-2 border-outline/30 text-on-surface font-bold font-label-caps hover:border-[#F9F321] transition-all"
-        >
-          Tools & Support
-        </button>
-        <button
-          class="whitespace-nowrap px-6 py-2 rounded-full border-2 border-outline/30 text-on-surface font-bold font-label-caps hover:border-[#F9F321] transition-all"
-        >
-          Research & Development
-        </button>
-      </nav>
-      <!-- Tools List (Vertical Grid) -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Tool Card 1 -->
-        <div
-          class="group bg-surface-container-low border border-outline-variant p-8 rounded-xl transition-all duration-300 hover:border-primary-fixed hover:-translate-y-1"
-        >
-          <div
-            class="mb-6 inline-flex items-center justify-center w-14 h-14 bg-surface-container-highest rounded-lg text-primary-fixed"
-          >
-            <span
-              class="material-symbols-outlined !text-4xl"
-              style="font-variation-settings: &quot;wght&quot; 300"
-              >auto_awesome</span
-            >
-          </div>
-          <div class="flex items-center gap-2 mb-2">
-            <h3 class="font-h3 text-h3 text-primary">SocialPost AI</h3>
-            <span
-              class="px-2 py-0.5 rounded bg-surface-container-highest text-[10px] font-bold text-outline-variant uppercase tracking-widest border border-outline-variant/30"
-              >Community Built</span
-            >
-          </div>
-          <p class="font-body-md text-secondary mb-8 line-clamp-2">
-            Autonomous social media management that learns your brand voice and
-            schedules posts across 10+ platforms.
+
+      <!-- ── 2. THE PROBLEM ─────────────────────────────────────── -->
+      <section class="px-6 max-w-5xl mx-auto py-20 reveal" id="problem">
+        <div class="text-center mb-14">
+          <span class="badge-yellow inline-block px-4 py-1.5 rounded-full font-label-caps text-xs mb-4 uppercase tracking-widest">The Problem</span>
+          <h2 class="font-h2 text-h2 text-primary">Sound familiar?</h2>
+          <p class="font-body-lg text-secondary mt-4 max-w-xl mx-auto">
+            Every day, small business owners across Kerala face the same silent losses.
           </p>
-          <a
-            class="inline-flex items-center text-primary-fixed font-bold font-label-caps group-hover:gap-3 transition-all duration-200"
-            href="#"
-          >
-            Explore
-            <span class="material-symbols-outlined ml-1">arrow_forward</span>
-          </a>
         </div>
-        <!-- Tool Card 2 -->
-        <div
-          class="group bg-surface-container-low border border-outline-variant p-8 rounded-xl transition-all duration-300 hover:border-primary-fixed hover:-translate-y-1"
-        >
-          <div
-            class="mb-6 inline-flex items-center justify-center w-14 h-14 bg-surface-container-highest rounded-lg text-primary-fixed"
-          >
-            <span
-              class="material-symbols-outlined !text-4xl"
-              style="font-variation-settings: &quot;wght&quot; 300"
-              >confirmation_number</span
-            >
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="problem-card bg-surface-container-low border border-outline-variant rounded-xl p-8">
+            <div class="w-12 h-12 rounded-lg bg-surface-container-highest flex items-center justify-center mb-5">
+              <span class="material-symbols-outlined text-[#F9F321]">chat_bubble</span>
+            </div>
+            <h3 class="font-bold text-white text-lg mb-2 font-h3">Missed Messages</h3>
+            <p class="text-secondary font-body-md">
+              A customer texts at 10 PM asking about your products. You're asleep.
+              By morning, they've already gone to a competitor.
+            </p>
           </div>
-          <div class="flex items-center gap-2 mb-2">
-            <h3 class="font-h3 text-h3 text-primary">Voucher-Go</h3>
-            <span
-              class="px-2 py-0.5 rounded bg-primary-container/20 text-[10px] font-bold text-primary-fixed uppercase tracking-widest border border-primary-fixed/30"
-              >Open Source</span
-            >
+          <div class="problem-card bg-surface-container-low border border-outline-variant rounded-xl p-8">
+            <div class="w-12 h-12 rounded-lg bg-surface-container-highest flex items-center justify-center mb-5">
+              <span class="material-symbols-outlined text-[#F9F321]">schedule</span>
+            </div>
+            <h3 class="font-bold text-white text-lg mb-2 font-h3">Repetitive Work</h3>
+            <p class="text-secondary font-body-md">
+              You spend hours answering "What's the price?", "Do you deliver?", "Is tomorrow free?"
+              — instead of growing your business.
+            </p>
           </div>
-          <p class="font-body-md text-secondary mb-8 line-clamp-2">
-            High-speed dynamic voucher generation and validation system for
-            local retail chains and digital marketplaces.
+          <div class="problem-card bg-surface-container-low border border-outline-variant rounded-xl p-8">
+            <div class="w-12 h-12 rounded-lg bg-surface-container-highest flex items-center justify-center mb-5">
+              <span class="material-symbols-outlined text-[#F9F321]">trending_down</span>
+            </div>
+            <h3 class="font-bold text-white text-lg mb-2 font-h3">Lost Revenue</h3>
+            <p class="text-secondary font-body-md">
+              Without a system to track orders, send promotions, or follow up on bookings,
+              money quietly slips away every single day.
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-10 p-6 border border-outline-variant/50 rounded-xl bg-surface-container/50 text-center">
+          <p class="text-secondary font-body-lg">
+            The cost of staying offline is not zero — it's your
+            <span class="text-white font-bold">customers going elsewhere.</span>
           </p>
-          <a
-            class="inline-flex items-center text-primary-fixed font-bold font-label-caps group-hover:gap-3 transition-all duration-200"
-            href="#"
-          >
-            Install Tool
-            <span class="material-symbols-outlined ml-1">arrow_forward</span>
-          </a>
         </div>
-        <!-- Tool Card 3 -->
-        <div
-          class="group bg-surface-container-low border border-outline-variant p-8 rounded-xl transition-all duration-300 hover:border-primary-fixed hover:-translate-y-1"
-        >
-          <div
-            class="mb-6 inline-flex items-center justify-center w-14 h-14 bg-surface-container-highest rounded-lg text-primary-fixed"
-          >
-            <span
-              class="material-symbols-outlined !text-4xl"
-              style="font-variation-settings: &quot;wght&quot; 300"
-              >translate</span
-            >
-          </div>
-          <div class="flex items-center gap-2 mb-2">
-            <h3 class="font-h3 text-h3 text-primary">Malayalam-LLM</h3>
-            <span
-              class="px-2 py-0.5 rounded bg-surface-container-highest text-[10px] font-bold text-outline-variant uppercase tracking-widest border border-outline-variant/30"
-              >Community Built</span
-            >
-          </div>
-          <p class="font-body-md text-secondary mb-8 line-clamp-2">
-            Localized large language model optimized for Malayalam dialect and
-            cultural nuances, providing 98% accuracy.
-          </p>
-          <a
-            class="inline-flex items-center text-primary-fixed font-bold font-label-caps group-hover:gap-3 transition-all duration-200"
-            href="#"
-          >
-            Explore
-            <span class="material-symbols-outlined ml-1">arrow_forward</span>
-          </a>
-        </div>
-        <!-- Tool Card 4 -->
-        <div
-          class="group bg-surface-container-low border border-outline-variant p-8 rounded-xl transition-all duration-300 hover:border-primary-fixed hover:-translate-y-1"
-        >
-          <div
-            class="mb-6 inline-flex items-center justify-center w-14 h-14 bg-surface-container-highest rounded-lg text-primary-fixed"
-          >
-            <span
-              class="material-symbols-outlined !text-4xl"
-              style="font-variation-settings: &quot;wght&quot; 300"
-              >terminal</span
-            >
-          </div>
-          <div class="flex items-center gap-2 mb-2">
-            <h3 class="font-h3 text-h3 text-primary">CodeArchitect</h3>
-            <span
-              class="px-2 py-0.5 rounded bg-primary-container/20 text-[10px] font-bold text-primary-fixed uppercase tracking-widest border border-primary-fixed/30"
-              >Open Source</span
-            >
-          </div>
-          <p class="font-body-md text-secondary mb-8 line-clamp-2">
-            Convert legacy monolithic structures into serverless microservices
-            with one click using our neural transpiler.
-          </p>
-          <a
-            class="inline-flex items-center text-primary-fixed font-bold font-label-caps group-hover:gap-3 transition-all duration-200"
-            href="#"
-          >
-            Install Tool
-            <span class="material-symbols-outlined ml-1">arrow_forward</span>
-          </a>
-        </div>
-        <!-- Tool Card 5 -->
-        <div
-          class="group bg-surface-container-low border border-outline-variant p-8 rounded-xl transition-all duration-300 hover:border-primary-fixed hover:-translate-y-1"
-        >
-          <div
-            class="mb-6 inline-flex items-center justify-center w-14 h-14 bg-surface-container-highest rounded-lg text-primary-fixed"
-          >
-            <span
-              class="material-symbols-outlined !text-4xl"
-              style="font-variation-settings: &quot;wght&quot; 300"
-              >dataset</span
-            >
-          </div>
-          <div class="flex items-center gap-2 mb-2">
-            <h3 class="font-h3 text-h3 text-primary">InsightCore</h3>
-            <span
-              class="px-2 py-0.5 rounded bg-surface-container-highest text-[10px] font-bold text-outline-variant uppercase tracking-widest border border-outline-variant/30"
-              >Community Built</span
-            >
-          </div>
-          <p class="font-body-md text-secondary mb-8 line-clamp-2">
-            Real-time business intelligence processing that transforms raw
-            spreadsheets into interactive visual dashboards.
-          </p>
-          <a
-            class="inline-flex items-center text-primary-fixed font-bold font-label-caps group-hover:gap-3 transition-all duration-200"
-            href="#"
-          >
-            Explore
-            <span class="material-symbols-outlined ml-1">arrow_forward</span>
-          </a>
-        </div>
-        <!-- Tool Card 6 -->
-        <div
-          class="group bg-surface-container-low border border-outline-variant p-8 rounded-xl transition-all duration-300 hover:border-primary-fixed hover:-translate-y-1"
-        >
-          <div
-            class="mb-6 inline-flex items-center justify-center w-14 h-14 bg-surface-container-highest rounded-lg text-primary-fixed"
-          >
-            <span
-              class="material-symbols-outlined !text-4xl"
-              style="font-variation-settings: &quot;wght&quot; 300"
-              >support_agent</span
-            >
-          </div>
-          <div class="flex items-center gap-2 mb-2">
-            <h3 class="font-h3 text-h3 text-primary">Voice-Flow</h3>
-            <span
-              class="px-2 py-0.5 rounded bg-primary-container/20 text-[10px] font-bold text-primary-fixed uppercase tracking-widest border border-primary-fixed/30"
-              >Open Source</span
-            >
-          </div>
-          <p class="font-body-md text-secondary mb-8 line-clamp-2">
-            Automated customer support voice agent with emotional intelligence
-            and contextual memory.
-          </p>
-          <a
-            class="inline-flex items-center text-primary-fixed font-bold font-label-caps group-hover:gap-3 transition-all duration-200"
-            href="#"
-          >
-            Install Tool
-            <span class="material-symbols-outlined ml-1">arrow_forward</span>
-          </a>
-        </div>
-      </div>
-      <!-- Extra Visual Decorative Section -->
-      <div
-        class="mt-24 p-12 bg-surface-container-low border border-outline-variant rounded-xl flex flex-col md:flex-row items-center gap-12 relative overflow-hidden"
-      >
-        <div
-          class="absolute -right-20 -bottom-20 w-64 h-64 bg-primary-container/5 rounded-full blur-3xl"
-        ></div>
-        <div class="flex-1 z-10">
-          <h2 class="font-h2 text-h2 text-primary mb-4 leading-tight">
-            Can't find the tool <br />
-            you need?
+      </section>
+
+      <!-- ── 3. BEFORE / AFTER ──────────────────────────────────── -->
+      <section class="px-6 max-w-5xl mx-auto py-20 reveal">
+        <div class="text-center mb-14">
+          <span class="badge-yellow inline-block px-4 py-1.5 rounded-full font-label-caps text-xs mb-4 uppercase tracking-widest">The Solution</span>
+          <h2 class="font-h2 text-h2 text-primary">
+            Your digital staff member.<br />
+            <span class="text-[#F9F321]">Works 24/7. No salary.</span>
           </h2>
-          <p class="font-body-lg text-body-lg text-secondary mb-8">
-            Join our community and build your own custom automation
-            tool from the sahaAI ecosystem.
+          <p class="font-body-lg text-secondary mt-4 max-w-2xl mx-auto">
+            sahaAI connects to your WhatsApp and acts as an always-available assistant — replying to
+            customers, taking bookings, and sending offers automatically.
           </p>
-          <button
-            class="bg-[#F9F321] text-black px-10 py-4 rounded-full font-black text-lg hover:scale-105 active:scale-95 transition-all font-label-caps hard-shadow"
-          >
-            Build with sahaAI
-          </button>
         </div>
-        <div
-          class="flex-1 relative z-10 w-full h-64 flex items-center justify-center"
-        >
-          <div class="grid grid-cols-4 gap-4 w-full opacity-40">
-            <div class="h-12 border border-outline-variant rounded-lg"></div>
-            <div
-              class="h-12 border border-outline-variant rounded-lg bg-primary-fixed/20"
-            ></div>
-            <div class="h-12 border border-outline-variant rounded-lg"></div>
-            <div class="h-12 border border-outline-variant rounded-lg"></div>
-            <div
-              class="h-12 border border-outline-variant rounded-lg bg-primary-fixed/40"
-            ></div>
-            <div class="h-12 border border-outline-variant rounded-lg"></div>
-            <div
-              class="h-12 border border-outline-variant rounded-lg bg-primary-fixed/20"
-            ></div>
-            <div class="h-12 border border-outline-variant rounded-lg"></div>
-            <div class="h-12 border border-outline-variant rounded-lg"></div>
-            <div
-              class="h-12 border border-outline-variant rounded-lg bg-primary-fixed/10"
-            ></div>
-            <div class="h-12 border border-outline-variant rounded-lg"></div>
-            <div
-              class="h-12 border border-outline-variant rounded-lg bg-primary-fixed/30"
-            ></div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Before -->
+          <div class="bg-surface-container-low border border-outline-variant rounded-xl p-8">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center">
+                <span class="material-symbols-outlined text-error text-lg">close</span>
+              </div>
+              <h3 class="font-bold text-white font-h3 text-lg">Before sahaAI</h3>
+            </div>
+            <ul class="space-y-4">
+              <li class="flex items-start gap-3 text-secondary font-body-md">
+                <span class="material-symbols-outlined text-error mt-0.5 text-base">remove</span>
+                You manually reply to every WhatsApp message
+              </li>
+              <li class="flex items-start gap-3 text-secondary font-body-md">
+                <span class="material-symbols-outlined text-error mt-0.5 text-base">remove</span>
+                Bookings tracked in a diary or your memory
+              </li>
+              <li class="flex items-start gap-3 text-secondary font-body-md">
+                <span class="material-symbols-outlined text-error mt-0.5 text-base">remove</span>
+                Promotions require printing or manual forwarding
+              </li>
+              <li class="flex items-start gap-3 text-secondary font-body-md">
+                <span class="material-symbols-outlined text-error mt-0.5 text-base">remove</span>
+                After 9 PM, no one is available for customers
+              </li>
+              <li class="flex items-start gap-3 text-secondary font-body-md">
+                <span class="material-symbols-outlined text-error mt-0.5 text-base">remove</span>
+                You guess which products sell best
+              </li>
+            </ul>
           </div>
-          <div class="absolute inset-0 flex items-center justify-center">
-            <div
-              class="w-32 h-32 border-4 border-[#F9F321] rounded-full flex items-center justify-center animate-pulse"
-            >
-              <span class="material-symbols-outlined !text-6xl text-[#F9F321]"
-                >engineering</span
-              >
+          <!-- After -->
+          <div class="bg-[#F9F321]/5 border border-[#F9F321]/30 rounded-xl p-8">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-8 h-8 rounded-full bg-[#F9F321]/20 flex items-center justify-center">
+                <span class="material-symbols-outlined text-[#F9F321] text-lg">check</span>
+              </div>
+              <h3 class="font-bold text-white font-h3 text-lg">With sahaAI</h3>
+            </div>
+            <ul class="space-y-4">
+              <li class="flex items-start gap-3 text-secondary font-body-md">
+                <span class="material-symbols-outlined text-[#F9F321] mt-0.5 text-base">check_circle</span>
+                AI replies instantly on WhatsApp, day or night
+              </li>
+              <li class="flex items-start gap-3 text-secondary font-body-md">
+                <span class="material-symbols-outlined text-[#F9F321] mt-0.5 text-base">check_circle</span>
+                Bookings confirmed and tracked automatically
+              </li>
+              <li class="flex items-start gap-3 text-secondary font-body-md">
+                <span class="material-symbols-outlined text-[#F9F321] mt-0.5 text-base">check_circle</span>
+                Promotions sent to customers on schedule
+              </li>
+              <li class="flex items-start gap-3 text-secondary font-body-md">
+                <span class="material-symbols-outlined text-[#F9F321] mt-0.5 text-base">check_circle</span>
+                Your business is "open" every hour of every day
+              </li>
+              <li class="flex items-start gap-3 text-secondary font-body-md">
+                <span class="material-symbols-outlined text-[#F9F321] mt-0.5 text-base">check_circle</span>
+                Clear reports show what's working and what isn't
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── 4. HOW IT WORKS ────────────────────────────────────── -->
+      <section class="px-6 max-w-4xl mx-auto py-20 reveal" id="how-it-works">
+        <div class="text-center mb-16">
+          <span class="badge-yellow inline-block px-4 py-1.5 rounded-full font-label-caps text-xs mb-4 uppercase tracking-widest">How It Works</span>
+          <h2 class="font-h2 text-h2 text-primary">
+            3 simple steps.<br />
+            <span class="text-[#F9F321]">No tech skills needed.</span>
+          </h2>
+        </div>
+
+        <div class="flex flex-col gap-0 relative">
+          <!-- Vertical connector line -->
+          <div class="absolute top-12 bottom-12 w-px step-line hidden md:block" style="left: 23px;"></div>
+
+          <!-- Step 1 -->
+          <div class="flex flex-col md:flex-row gap-6 md:gap-10 items-start pb-10 relative">
+            <div class="step-num z-10">1</div>
+            <div class="bg-surface-container-low border border-outline-variant rounded-xl p-8 flex-1 hover:border-[#F9F321]/40 transition-colors duration-300">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="material-symbols-outlined text-[#F9F321]">person_add</span>
+                <h3 class="font-bold text-white text-xl font-h3">Tell us about your business</h3>
+              </div>
+              <p class="text-secondary font-body-md mb-4">
+                Fill in a simple form — your shop name, what you sell, your working hours, and your
+                WhatsApp number. That's all. It takes less than 5 minutes.
+              </p>
+              <div class="flex items-center gap-2 p-3 bg-surface-container-highest rounded-lg text-xs font-label-caps text-outline uppercase tracking-widest">
+                <span class="material-symbols-outlined text-sm">timer</span>
+                Takes about 5 minutes · No app download needed
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="flex flex-col md:flex-row gap-6 md:gap-10 items-start pb-10 relative">
+            <div class="step-num z-10">2</div>
+            <div class="bg-surface-container-low border border-outline-variant rounded-xl p-8 flex-1 hover:border-[#F9F321]/40 transition-colors duration-300">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="material-symbols-outlined text-[#F9F321]">build</span>
+                <h3 class="font-bold text-white text-xl font-h3">We set it up for you</h3>
+              </div>
+              <p class="text-secondary font-body-md mb-4">
+                A sahaAI developer personalises your AI assistant — it will know your products, prices,
+                language, and tone. You don't need to do anything technical.
+              </p>
+              <div class="flex items-center gap-2 p-3 bg-surface-container-highest rounded-lg text-xs font-label-caps text-outline uppercase tracking-widest">
+                <span class="material-symbols-outlined text-sm">support_agent</span>
+                Handled entirely by our team · Ready in 24–48 hours
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="flex flex-col md:flex-row gap-6 md:gap-10 items-start">
+            <div class="step-num z-10">3</div>
+            <div class="bg-[#F9F321]/5 border border-[#F9F321]/30 rounded-xl p-8 flex-1 hover:border-[#F9F321]/60 transition-colors duration-300">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="material-symbols-outlined text-[#F9F321]">rocket_launch</span>
+                <h3 class="font-bold text-white text-xl font-h3">Watch your business grow</h3>
+              </div>
+              <p class="text-secondary font-body-md mb-4">
+                Your sahaAI assistant goes live on WhatsApp. It replies to customers, confirms bookings,
+                and sends out offers — all on its own. You focus on what you love.
+              </p>
+              <div class="flex items-center gap-2 p-3 bg-[#F9F321]/10 rounded-lg text-xs font-label-caps text-[#F9F321] uppercase tracking-widest">
+                <span class="material-symbols-outlined text-sm">verified</span>
+                Active 24/7 · Speaks Malayalam &amp; English · No maintenance required
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
+
+      <!-- ── 5. WHAT IT CAN DO ──────────────────────────────────── -->
+      <section class="px-6 max-w-5xl mx-auto py-20 reveal">
+        <div class="text-center mb-14">
+          <span class="badge-yellow inline-block px-4 py-1.5 rounded-full font-label-caps text-xs mb-4 uppercase tracking-widest">Capabilities</span>
+          <h2 class="font-h2 text-h2 text-primary">
+            One assistant.<br />
+            <span class="text-[#F9F321]">Many superpowers.</span>
+          </h2>
+          <p class="font-body-lg text-secondary mt-4 max-w-xl mx-auto">
+            Here's what sahaAI does for your business, starting from day one.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div class="group bg-surface-container-low border border-outline-variant rounded-xl p-6 hover:border-[#F9F321]/40 transition-all duration-300 hover:-translate-y-1">
+            <span class="material-symbols-outlined text-[#F9F321] mb-3 block" style="font-variation-settings:'wght' 300">chat</span>
+            <h4 class="font-bold text-white mb-2">Auto-Reply on WhatsApp</h4>
+            <p class="text-secondary text-sm">Instantly answers customer queries about products, prices, timings, and location — in their own language.</p>
+          </div>
+          <div class="group bg-surface-container-low border border-outline-variant rounded-xl p-6 hover:border-[#F9F321]/40 transition-all duration-300 hover:-translate-y-1">
+            <span class="material-symbols-outlined text-[#F9F321] mb-3 block" style="font-variation-settings:'wght' 300">calendar_month</span>
+            <h4 class="font-bold text-white mb-2">Booking &amp; Appointments</h4>
+            <p class="text-secondary text-sm">Customers book a slot through WhatsApp. sahaAI confirms it, sends reminders, and updates your calendar.</p>
+          </div>
+          <div class="group bg-surface-container-low border border-outline-variant rounded-xl p-6 hover:border-[#F9F321]/40 transition-all duration-300 hover:-translate-y-1">
+            <span class="material-symbols-outlined text-[#F9F321] mb-3 block" style="font-variation-settings:'wght' 300">campaign</span>
+            <h4 class="font-bold text-white mb-2">Promotions &amp; Offers</h4>
+            <p class="text-secondary text-sm">Send Onam offers, festival discounts, or new product alerts to all your customers in one click.</p>
+          </div>
+          <div class="group bg-surface-container-low border border-outline-variant rounded-xl p-6 hover:border-[#F9F321]/40 transition-all duration-300 hover:-translate-y-1">
+            <span class="material-symbols-outlined text-[#F9F321] mb-3 block" style="font-variation-settings:'wght' 300">inventory_2</span>
+            <h4 class="font-bold text-white mb-2">Order Management</h4>
+            <p class="text-secondary text-sm">Track orders, confirm deliveries, and follow up with customers — automatically and without any spreadsheet.</p>
+          </div>
+          <div class="group bg-surface-container-low border border-outline-variant rounded-xl p-6 hover:border-[#F9F321]/40 transition-all duration-300 hover:-translate-y-1">
+            <span class="material-symbols-outlined text-[#F9F321] mb-3 block" style="font-variation-settings:'wght' 300">translate</span>
+            <h4 class="font-bold text-white mb-2">Speaks Malayalam</h4>
+            <p class="text-secondary text-sm">Built for Kerala — understands and responds naturally in Malayalam, not just English.</p>
+          </div>
+          <div class="group bg-surface-container-low border border-outline-variant rounded-xl p-6 hover:border-[#F9F321]/40 transition-all duration-300 hover:-translate-y-1">
+            <span class="material-symbols-outlined text-[#F9F321] mb-3 block" style="font-variation-settings:'wght' 300">bar_chart</span>
+            <h4 class="font-bold text-white mb-2">Simple Reports</h4>
+            <p class="text-secondary text-sm">See how many customers you served, what they asked, and which products are most popular — in plain language.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── 6. PRICING TEASER ──────────────────────────────────── -->
+      <section class="px-6 max-w-3xl mx-auto py-20 reveal">
+        <div class="bg-surface-container-low border border-outline-variant rounded-2xl p-10 md:p-14 text-center relative overflow-hidden">
+          <div class="absolute -top-20 left-1/2 -translate-x-1/2 w-80 h-80 bg-[#F9F321]/8 rounded-full blur-3xl pointer-events-none"></div>
+          <div class="relative z-10">
+            <span class="badge-yellow inline-block px-4 py-1.5 rounded-full font-label-caps text-xs mb-5 uppercase tracking-widest">Simple Pricing</span>
+            <h2 class="font-h2 text-h2 text-white mb-3">
+              Less than one<br />
+              <span class="text-[#F9F321]">staff member's day.</span>
+            </h2>
+            <p class="text-secondary font-body-lg max-w-lg mx-auto mb-8">
+              At <span class="text-white font-bold">₹499/month</span>, sahaAI costs less than the
+              revenue from a single new customer. No setup fees. No long-term contracts. Cancel any time.
+            </p>
+            <a
+              href="clientform.html"
+              class="bg-[#F9F321] text-black px-10 py-4 rounded-full font-black text-base hover:scale-105 active:scale-95 transition-all font-label-caps hard-shadow inline-block"
+            >
+              Get Started — ₹499/month
+            </a>
+            <p class="text-outline text-xs font-label-caps mt-5 uppercase tracking-widest">
+              First 30 days free · No credit card required
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── 7. WHO IS THIS FOR ─────────────────────────────────── -->
+      <section class="px-6 max-w-5xl mx-auto py-20 reveal">
+        <div class="text-center mb-14">
+          <span class="badge-yellow inline-block px-4 py-1.5 rounded-full font-label-caps text-xs mb-4 uppercase tracking-widest">Who It's For</span>
+          <h2 class="font-h2 text-h2 text-primary">
+            Built for businesses like <span class="text-[#F9F321]">yours.</span>
+          </h2>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div class="bg-surface-container-low border border-outline-variant rounded-xl p-6 text-center hover:border-[#F9F321]/40 transition-all duration-300">
+            <span class="material-symbols-outlined text-[#F9F321] !text-4xl mb-3 block">storefront</span>
+            <p class="text-white font-bold text-sm">Shops &amp; Stores</p>
+            <p class="text-secondary text-xs mt-1">Kirana, boutiques, bookshops</p>
+          </div>
+          <div class="bg-surface-container-low border border-outline-variant rounded-xl p-6 text-center hover:border-[#F9F321]/40 transition-all duration-300">
+            <span class="material-symbols-outlined text-[#F9F321] !text-4xl mb-3 block">spa</span>
+            <p class="text-white font-bold text-sm">Salons &amp; Spas</p>
+            <p class="text-secondary text-xs mt-1">Bookings &amp; reminders</p>
+          </div>
+          <div class="bg-surface-container-low border border-outline-variant rounded-xl p-6 text-center hover:border-[#F9F321]/40 transition-all duration-300">
+            <span class="material-symbols-outlined text-[#F9F321] !text-4xl mb-3 block">restaurant</span>
+            <p class="text-white font-bold text-sm">Food &amp; Catering</p>
+            <p class="text-secondary text-xs mt-1">Orders, menus, delivery</p>
+          </div>
+          <div class="bg-surface-container-low border border-outline-variant rounded-xl p-6 text-center hover:border-[#F9F321]/40 transition-all duration-300">
+            <span class="material-symbols-outlined text-[#F9F321] !text-4xl mb-3 block">home_repair_service</span>
+            <p class="text-white font-bold text-sm">Home Services</p>
+            <p class="text-secondary text-xs mt-1">Tutors, repair, artisans</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── 8. FINAL CTA ───────────────────────────────────────── -->
+      <section class="px-6 max-w-5xl mx-auto py-20 reveal">
+        <div
+          class="p-12 bg-surface-container-low border border-outline-variant rounded-xl flex flex-col md:flex-row items-center gap-12 relative overflow-hidden"
+        >
+          <div class="absolute -right-20 -bottom-20 w-64 h-64 bg-primary-container/5 rounded-full blur-3xl pointer-events-none"></div>
+          <div class="flex-1 z-10">
+            <h2 class="font-h2 text-h2 text-primary mb-4 leading-tight">
+              Ready to let AI<br />
+              handle the rest?
+            </h2>
+            <p class="font-body-lg text-body-lg text-secondary mb-8">
+              Join businesses across Kerala already using sahaAI to save time,
+              serve more customers, and grow — without extra staff.
+            </p>
+            <a
+              href="clientform.html"
+              class="bg-[#F9F321] text-black px-10 py-4 rounded-full font-black text-lg hover:scale-105 active:scale-95 transition-all font-label-caps hard-shadow inline-block"
+            >
+              Start Your Free Trial
+            </a>
+          </div>
+          <div class="flex-1 relative z-10 flex items-center justify-center">
+            <div class="relative w-48 h-48 flex items-center justify-center">
+              <div class="absolute w-48 h-48 border-2 border-[#F9F321]/20 rounded-full animate-ping" style="animation-duration:3s;"></div>
+              <div class="absolute w-36 h-36 border-2 border-[#F9F321]/30 rounded-full animate-ping" style="animation-duration:2s;"></div>
+              <div
+                class="w-24 h-24 bg-[#F9F321] rounded-full flex items-center justify-center"
+                style="box-shadow: 0 0 40px rgba(249,243,33,0.35);"
+              >
+                <span class="material-symbols-outlined text-black !text-5xl">smart_toy</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
     </main>
-    <!-- Footer -->
+
+    <!-- ============================================================ -->
+    <!--  FOOTER (exact design system match from index.html)          -->
+    <!-- ============================================================ -->
     <footer class="w-full bg-neutral-950 border-t border-neutral-800">
       <div
         class="max-w-7xl mx-auto px-8 py-12 flex flex-col md:flex-row justify-between items-center gap-8"
@@ -524,31 +688,11 @@
           </p>
         </div>
         <nav class="flex flex-wrap justify-center gap-8">
-          <a
-            class="text-neutral-500 font-label-caps text-sm uppercase tracking-widest hover:text-white transition-colors duration-200"
-            href="#"
-            >How it Works</a
-          >
-          <a
-            class="text-[#F9F321] font-label-caps text-sm uppercase tracking-widest hover:text-white transition-colors duration-200"
-            href="#"
-            >Tools</a
-          >
-          <a
-            class="text-neutral-500 font-label-caps text-sm uppercase tracking-widest hover:text-white transition-colors duration-200"
-            href="#"
-            >Pricing</a
-          >
-          <a
-            class="text-neutral-500 font-label-caps text-sm uppercase tracking-widest hover:text-white transition-colors duration-200"
-            href="#"
-            >About</a
-          >
-          <a
-            class="text-neutral-500 font-label-caps text-sm uppercase tracking-widest hover:text-white transition-colors duration-200"
-            href="#"
-            >Contact</a
-          >
+          <a class="text-[#F9F321] font-label-caps text-sm uppercase tracking-widest hover:text-white transition-colors duration-200" href="indexnew.html">How it Works</a>
+          <a class="text-neutral-500 font-label-caps text-sm uppercase tracking-widest hover:text-white transition-colors duration-200" href="index.html">Tools</a>
+          <a class="text-neutral-500 font-label-caps text-sm uppercase tracking-widest hover:text-white transition-colors duration-200" href="#">Pricing</a>
+          <a class="text-neutral-500 font-label-caps text-sm uppercase tracking-widest hover:text-white transition-colors duration-200" href="#">About</a>
+          <a class="text-neutral-500 font-label-caps text-sm uppercase tracking-widest hover:text-white transition-colors duration-200" href="#">Contact</a>
         </nav>
         <div class="flex gap-4">
           <a
@@ -566,47 +710,21 @@
         </div>
       </div>
     </footer>
+
     <script>
-      // Simple filter interaction
-      const filterButtons = document.querySelectorAll("nav button");
-      filterButtons.forEach((btn) => {
-        btn.addEventListener("click", () => {
-          filterButtons.forEach((b) => {
-            b.classList.remove("bg-[#F9F321]", "text-black");
-            b.classList.add("border-2", "border-outline/30", "text-on-surface");
+      // Scroll reveal
+      const reveals = document.querySelectorAll(".reveal");
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
           });
-          btn.classList.add("bg-[#F9F321]", "text-black");
-          btn.classList.remove(
-            "border-2",
-            "border-outline/30",
-            "text-on-surface",
-          );
-        });
-      });
-
-      // Intersection Observer for scroll animations
-      const observerOptions = {
-        threshold: 0.1,
-      };
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("opacity-100", "translate-y-0");
-            entry.target.classList.remove("opacity-0", "translate-y-10");
-          }
-        });
-      }, observerOptions);
-
-      document.querySelectorAll(".group").forEach((card) => {
-        card.classList.add(
-          "transition-all",
-          "duration-700",
-          "opacity-0",
-          "translate-y-10",
-        );
-        observer.observe(card);
-      });
+        },
+        { threshold: 0.08 }
+      );
+      reveals.forEach((el) => revealObserver.observe(el));
     </script>
   </body>
 </html>
