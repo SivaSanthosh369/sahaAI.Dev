@@ -1,9 +1,19 @@
 const router = require('express').Router();
 const bcrypt = require('bcrypt');
 const pool = require('../config/db');
+const rateLimit = require('express-rate-limit');
+
+// Brute force protection: limit login attempts
+const loginLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 5, // Limit each IP to 5 login requests per window
+    message: { error: 'Too many login attempts, please try again after 15 minutes' },
+    standardHeaders: true,
+    legacyHeaders: false,
+});
 
 // Client login
-router.post('/login-client', async (req, res) => {
+router.post('/login-client', loginLimiter, async (req, res) => {
     const { email, password } = req.body;
     
     if (!email || !password) {
@@ -36,7 +46,8 @@ router.post('/login-client', async (req, res) => {
         
         req.session.save((err) => {
             if (err) {
-                return res.status(500).json({ error: 'Session save failed' });
+                console.error('Session save error:', err);
+                return res.status(500).json({ error: 'Internal server error' });
             }
             res.json({ 
                 message: 'Login successful',
@@ -44,7 +55,8 @@ router.post('/login-client', async (req, res) => {
             });
         });
     } catch (error) {
-        res.status(500).json({ error: error.message });
+        console.error('Login error:', error);
+        res.status(500).json({ error: 'Internal server error' });
     }
 });
 
