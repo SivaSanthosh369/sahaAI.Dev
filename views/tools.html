@@ -181,34 +181,19 @@
             href="tools.html"
             >Tools</a
           >
-          <a
-            class="text-neutral-400 font-medium hover:text-[#F9F321] hover:scale-105 transition-all duration-200 font-label-caps"
-            href="#"
-            >Pricing</a
-          >
-          <a
-            class="text-neutral-400 font-medium hover:text-[#F9F321] hover:scale-105 transition-all duration-200 font-label-caps"
-            href="#"
-            >About</a
-          >
-          <a
-            class="text-neutral-400 font-medium hover:text-[#F9F321] hover:scale-105 transition-all duration-200 font-label-caps"
-            href="#"
-            >Contact</a
+          <button
+            onclick="openContactModal()"
+            class="text-neutral-400 font-medium hover:text-[#F9F321] hover:scale-105 transition-all duration-200 font-label-caps cursor-pointer"
+            >Contact</button
           >
         </nav>
         <div class="flex items-center gap-4">
           <button
-            class="text-neutral-400 hover:text-[#F9F321] transition-colors"
+            onclick="openContactModal()"
+            class="bg-[#F9F321] text-black px-6 py-2 rounded-full font-bold hover:scale-105 active:scale-95 transition-all font-label-caps inline-block cursor-pointer"
           >
-            <span class="material-symbols-outlined">light_mode</span>
+            Contact Us
           </button>
-          <a
-            href="clientform.html"
-            class="bg-[#F9F321] text-black px-6 py-2 rounded-full font-bold hover:scale-105 active:scale-95 transition-all font-label-caps inline-block"
-          >
-            Get Started
-          </a>
         </div>
       </div>
     </header>
@@ -283,8 +268,9 @@
             schedules posts across 10+ platforms.
           </p>
           <a
-            class="inline-flex items-center text-primary-fixed font-bold font-label-caps group-hover:gap-3 transition-all duration-200"
+            class="inline-flex items-center text-primary-fixed font-bold font-label-caps group-hover:gap-3 transition-all duration-200 cursor-pointer"
             href="#"
+            onclick="openContactModal(); return false;"
           >
             Explore
             <span class="material-symbols-outlined ml-1">arrow_forward</span>
@@ -315,8 +301,9 @@
             local retail chains and digital marketplaces.
           </p>
           <a
-            class="inline-flex items-center text-primary-fixed font-bold font-label-caps group-hover:gap-3 transition-all duration-200"
+            class="inline-flex items-center text-primary-fixed font-bold font-label-caps group-hover:gap-3 transition-all duration-200 cursor-pointer"
             href="#"
+            onclick="openContactModal(); return false;"
           >
             Install Tool
             <span class="material-symbols-outlined ml-1">arrow_forward</span>
@@ -347,8 +334,9 @@
             cultural nuances, providing 98% accuracy.
           </p>
           <a
-            class="inline-flex items-center text-primary-fixed font-bold font-label-caps group-hover:gap-3 transition-all duration-200"
+            class="inline-flex items-center text-primary-fixed font-bold font-label-caps group-hover:gap-3 transition-all duration-200 cursor-pointer"
             href="#"
+            onclick="openContactModal(); return false;"
           >
             Explore
             <span class="material-symbols-outlined ml-1">arrow_forward</span>
@@ -379,8 +367,9 @@
             with one click using our neural transpiler.
           </p>
           <a
-            class="inline-flex items-center text-primary-fixed font-bold font-label-caps group-hover:gap-3 transition-all duration-200"
+            class="inline-flex items-center text-primary-fixed font-bold font-label-caps group-hover:gap-3 transition-all duration-200 cursor-pointer"
             href="#"
+            onclick="openContactModal(); return false;"
           >
             Install Tool
             <span class="material-symbols-outlined ml-1">arrow_forward</span>
@@ -411,8 +400,9 @@
             spreadsheets into interactive visual dashboards.
           </p>
           <a
-            class="inline-flex items-center text-primary-fixed font-bold font-label-caps group-hover:gap-3 transition-all duration-200"
+            class="inline-flex items-center text-primary-fixed font-bold font-label-caps group-hover:gap-3 transition-all duration-200 cursor-pointer"
             href="#"
+            onclick="openContactModal(); return false;"
           >
             Explore
             <span class="material-symbols-outlined ml-1">arrow_forward</span>
@@ -443,8 +433,9 @@
             and contextual memory.
           </p>
           <a
-            class="inline-flex items-center text-primary-fixed font-bold font-label-caps group-hover:gap-3 transition-all duration-200"
+            class="inline-flex items-center text-primary-fixed font-bold font-label-caps group-hover:gap-3 transition-all duration-200 cursor-pointer"
             href="#"
+            onclick="openContactModal(); return false;"
           >
             Install Tool
             <span class="material-symbols-outlined ml-1">arrow_forward</span>
@@ -468,7 +459,8 @@
             tool from the sahaAI ecosystem.
           </p>
           <button
-            class="bg-[#F9F321] text-black px-10 py-4 rounded-full font-black text-lg hover:scale-105 active:scale-95 transition-all font-label-caps hard-shadow"
+            onclick="openContactModal()"
+            class="bg-[#F9F321] text-black px-10 py-4 rounded-full font-black text-lg hover:scale-105 active:scale-95 transition-all font-label-caps hard-shadow cursor-pointer"
           >
             Build with sahaAI
           </button>
@@ -525,62 +517,216 @@
         </div>
         <nav class="flex flex-wrap justify-center gap-8">
           <a
-            class="text-neutral-500 font-label-caps text-sm uppercase tracking-widest hover:text-white transition-colors duration-200"
-            href="indexnew.html"
+            class="text-neutral-400 font-label-caps text-sm uppercase tracking-widest hover:text-white transition-colors duration-200"
+            href="index.html"
             >How it Works</a
           >
           <a
             class="text-[#F9F321] font-label-caps text-sm uppercase tracking-widest hover:text-white transition-colors duration-200"
-            href="#"
+            href="tools.html"
             >Tools</a
           >
-          <a
-            class="text-neutral-500 font-label-caps text-sm uppercase tracking-widest hover:text-white transition-colors duration-200"
-            href="#"
-            >Pricing</a
-          >
-          <a
-            class="text-neutral-500 font-label-caps text-sm uppercase tracking-widest hover:text-white transition-colors duration-200"
-            href="#"
-            >About</a
-          >
-          <a
-            class="text-neutral-500 font-label-caps text-sm uppercase tracking-widest hover:text-white transition-colors duration-200"
-            href="#"
-            >Contact</a
+          <button
+            onclick="openContactModal()"
+            class="text-neutral-400 font-label-caps text-sm uppercase tracking-widest hover:text-white transition-colors duration-200 cursor-pointer"
+            >Contact</button
           >
         </nav>
-        <div class="flex gap-4">
-          <a
-            class="w-10 h-10 flex items-center justify-center rounded-full border border-neutral-800 text-neutral-500 hover:text-[#F9F321] hover:border-[#F9F321] transition-all"
-            href="#"
-          >
-            <span class="material-symbols-outlined">share</span>
-          </a>
-          <a
-            class="w-10 h-10 flex items-center justify-center rounded-full border border-neutral-800 text-neutral-500 hover:text-[#F9F321] hover:border-[#F9F321] transition-all"
-            href="#"
-          >
-            <span class="material-symbols-outlined">hub</span>
-          </a>
-        </div>
       </div>
     </footer>
+
+    <!-- ============================================================ -->
+    <!--  CONTACT DETAILS MODAL                                        -->
+    <!-- ============================================================ -->
+    <div
+      id="contactModal"
+      class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="contactModalTitle"
+    >
+      <!-- Backdrop -->
+      <div
+        id="contactModalBackdrop"
+        class="fixed inset-0 bg-black/80 backdrop-blur-md transition-opacity duration-300 opacity-0"
+        onclick="closeContactModal()"
+      ></div>
+
+      <!-- Modal Card -->
+      <div
+        id="contactModalCard"
+        class="relative w-full max-w-lg bg-[#141408] border border-[#F9F321]/30 rounded-2xl p-6 sm:p-8 shadow-[0_0_50px_rgba(249,243,33,0.15)] text-left z-10 transform scale-95 opacity-0 transition-all duration-300"
+      >
+        <!-- Header -->
+        <div class="flex items-start justify-between pb-5 border-b border-neutral-800">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F9F321]/10 border border-[#F9F321]/30 text-[#F9F321] text-xs font-bold font-label-caps uppercase tracking-widest mb-2">
+              <span class="w-2 h-2 rounded-full bg-[#F9F321] animate-pulse"></span>
+              Direct Contact
+            </div>
+            <h3 id="contactModalTitle" class="text-2xl font-black text-white font-h3 tracking-tight">
+              Get in Touch
+            </h3>
+            <p class="text-sm text-neutral-400 font-body-md mt-0.5">
+              Connect directly with our founder &amp; developer
+            </p>
+          </div>
+          <button
+            onclick="closeContactModal()"
+            class="w-9 h-9 rounded-full bg-neutral-900 border border-neutral-700 text-neutral-400 hover:text-white hover:border-[#F9F321] flex items-center justify-center transition-all focus:outline-none cursor-pointer"
+            aria-label="Close modal"
+          >
+            <span class="material-symbols-outlined text-lg">close</span>
+          </button>
+        </div>
+
+        <!-- Founder Profile Snippet -->
+        <div class="my-5 p-4 rounded-xl bg-neutral-900/80 border border-neutral-800 flex items-center gap-4">
+          <div class="w-12 h-12 rounded-full bg-[#F9F321] text-black font-black font-h3 flex items-center justify-center text-lg shadow-[0_0_15px_rgba(249,243,33,0.3)]">
+            SS
+          </div>
+          <div>
+            <h4 class="font-bold text-white text-base font-h3">Siva Santosh</h4>
+            <p class="text-xs text-neutral-400 font-label-caps uppercase tracking-wider">Founder &amp; Developer · sahaAI</p>
+          </div>
+        </div>
+
+        <!-- Contact Methods List -->
+        <div class="space-y-3">
+          <!-- Mobile / Phone -->
+          <div class="p-3.5 sm:p-4 rounded-xl bg-[#1b1c11] border border-neutral-800 hover:border-[#F9F321]/40 transition-colors flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3.5 min-w-0">
+              <div class="w-10 h-10 rounded-lg bg-[#F9F321]/10 text-[#F9F321] flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-xl">call</span>
+              </div>
+              <div class="min-w-0">
+                <span class="block text-[11px] font-bold text-neutral-400 font-label-caps uppercase tracking-wider">Mobile Number</span>
+                <a
+                  href="tel:+918078832369"
+                  class="text-white hover:text-[#F9F321] font-semibold text-sm sm:text-base transition-colors truncate block"
+                >
+                  +91 8078832369
+                </a>
+              </div>
+            </div>
+            <div class="flex items-center gap-2 shrink-0">
+              <a
+                href="https://wa.me/918078832369"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="px-2.5 py-1.5 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 hover:bg-emerald-500/20 text-xs font-bold font-label-caps transition flex items-center gap-1"
+                title="Chat on WhatsApp"
+              >
+                <span class="material-symbols-outlined text-sm">chat</span>
+                <span class="hidden sm:inline">WhatsApp</span>
+              </a>
+              <a
+                href="tel:+918078832369"
+                class="px-2.5 py-1.5 rounded-lg bg-[#F9F321] text-black hover:bg-yellow-300 text-xs font-bold font-label-caps transition flex items-center gap-1"
+                title="Call now"
+              >
+                <span class="material-symbols-outlined text-sm">phone_forwarded</span>
+                <span class="hidden sm:inline">Call</span>
+              </a>
+              <button
+                onclick="copyContactText('+918078832369', this)"
+                class="p-2 rounded-lg bg-neutral-900 text-neutral-400 hover:text-white border border-neutral-700 hover:border-neutral-600 transition cursor-pointer"
+                title="Copy number"
+              >
+                <span class="material-symbols-outlined text-sm">content_copy</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="p-3.5 sm:p-4 rounded-xl bg-[#1b1c11] border border-neutral-800 hover:border-[#F9F321]/40 transition-colors flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3.5 min-w-0">
+              <div class="w-10 h-10 rounded-lg bg-[#F9F321]/10 text-[#F9F321] flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-xl">mail</span>
+              </div>
+              <div class="min-w-0">
+                <span class="block text-[11px] font-bold text-neutral-400 font-label-caps uppercase tracking-wider">Email Address</span>
+                <a
+                  href="mailto:shivasanthosh369@gmail.com"
+                  class="text-white hover:text-[#F9F321] font-semibold text-xs sm:text-sm transition-colors truncate block"
+                >
+                  shivasanthosh369@gmail.com
+                </a>
+              </div>
+            </div>
+            <div class="flex items-center gap-2 shrink-0">
+              <a
+                href="mailto:shivasanthosh369@gmail.com"
+                class="px-2.5 py-1.5 rounded-lg bg-[#F9F321] text-black hover:bg-yellow-300 text-xs font-bold font-label-caps transition flex items-center gap-1"
+                title="Send email"
+              >
+                <span class="material-symbols-outlined text-sm">send</span>
+                <span class="hidden sm:inline">Email</span>
+              </a>
+              <button
+                onclick="copyContactText('shivasanthosh369@gmail.com', this)"
+                class="p-2 rounded-lg bg-neutral-900 text-neutral-400 hover:text-white border border-neutral-700 hover:border-neutral-600 transition cursor-pointer"
+                title="Copy email"
+              >
+                <span class="material-symbols-outlined text-sm">content_copy</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- LinkedIn -->
+          <div class="p-3.5 sm:p-4 rounded-xl bg-[#1b1c11] border border-neutral-800 hover:border-[#F9F321]/40 transition-colors flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3.5 min-w-0">
+              <div class="w-10 h-10 rounded-lg bg-[#F9F321]/10 text-[#F9F321] flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                  <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+                </svg>
+              </div>
+              <div class="min-w-0">
+                <span class="block text-[11px] font-bold text-neutral-400 font-label-caps uppercase tracking-wider">LinkedIn</span>
+                <span class="text-white font-semibold text-xs sm:text-sm truncate block">
+                  linkedin.com/in/sivasanthosh
+                </span>
+              </div>
+            </div>
+            <div class="flex items-center gap-2 shrink-0">
+              <a
+                href="https://www.linkedin.com/in/sivasanthosh/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="px-3 py-1.5 rounded-lg bg-[#0077B5]/20 text-[#0077B5] border border-[#0077B5]/40 hover:bg-[#0077B5]/30 text-xs font-bold font-label-caps transition flex items-center gap-1"
+              >
+                <span>View Profile</span>
+                <span class="material-symbols-outlined text-sm">open_in_new</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer note -->
+        <div class="mt-6 pt-4 border-t border-neutral-800 flex items-center justify-between text-xs text-neutral-500 font-label-caps">
+          <span>⚡ Typically responds within a few hours</span>
+          <span class="text-[#F9F321]">Kerala &amp; Remote</span>
+        </div>
+      </div>
+    </div>
+
     <script>
       // Simple filter interaction
       const filterButtons = document.querySelectorAll("nav button");
       filterButtons.forEach((btn) => {
         btn.addEventListener("click", () => {
-          filterButtons.forEach((b) => {
-            b.classList.remove("bg-[#F9F321]", "text-black");
-            b.classList.add("border-2", "border-outline/30", "text-on-surface");
-          });
-          btn.classList.add("bg-[#F9F321]", "text-black");
-          btn.classList.remove(
-            "border-2",
-            "border-outline/30",
-            "text-on-surface",
-          );
+          if (btn.classList.contains("whitespace-nowrap")) {
+            document.querySelectorAll("nav button.whitespace-nowrap").forEach((b) => {
+              b.classList.remove("bg-[#F9F321]", "text-black");
+              b.classList.add("border-2", "border-outline/30", "text-on-surface");
+            });
+            btn.classList.add("bg-[#F9F321]", "text-black");
+            btn.classList.remove(
+              "border-2",
+              "border-outline/30",
+              "text-on-surface",
+            );
+          }
         });
       });
 
@@ -607,6 +753,55 @@
         );
         observer.observe(card);
       });
+
+      // Contact Modal Functions
+      function openContactModal() {
+        const modal = document.getElementById('contactModal');
+        const backdrop = document.getElementById('contactModalBackdrop');
+        const card = document.getElementById('contactModalCard');
+        if (!modal) return;
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+        requestAnimationFrame(() => {
+          backdrop.classList.remove('opacity-0');
+          backdrop.classList.add('opacity-100');
+          card.classList.remove('scale-95', 'opacity-0');
+          card.classList.add('scale-100', 'opacity-100');
+        });
+      }
+
+      function closeContactModal() {
+        const modal = document.getElementById('contactModal');
+        const backdrop = document.getElementById('contactModalBackdrop');
+        const card = document.getElementById('contactModalCard');
+        if (!modal) return;
+        backdrop.classList.remove('opacity-100');
+        backdrop.classList.add('opacity-0');
+        card.classList.remove('scale-100', 'opacity-100');
+        card.classList.add('scale-95', 'opacity-0');
+        setTimeout(() => {
+          modal.classList.remove('flex');
+          modal.classList.add('hidden');
+          document.body.style.overflow = '';
+        }, 200);
+      }
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          closeContactModal();
+        }
+      });
+
+      function copyContactText(text, btn) {
+        navigator.clipboard.writeText(text).then(() => {
+          const originalHTML = btn.innerHTML;
+          btn.innerHTML = '<span class="material-symbols-outlined text-sm text-[#F9F321]">check</span>';
+          setTimeout(() => {
+            btn.innerHTML = originalHTML;
+          }, 1500);
+        }).catch(() => {});
+      }
     </script>
   </body>
 </html>

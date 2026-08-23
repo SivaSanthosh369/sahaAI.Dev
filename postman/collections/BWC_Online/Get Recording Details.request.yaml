@@ -1,0 +1,9 @@
+$kind: http-request
+name: Get Recording Details
+url: http://localhost:9000/api/recordings/{{rec_id}}
+method: GET
+auth:
+  type: bearer
+  credentials:
+    token: "{{student_token}}"
+order: 4503589294270561

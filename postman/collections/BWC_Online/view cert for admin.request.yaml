@@ -1,0 +1,9 @@
+$kind: http-request
+name: view cert for admin
+url: http://localhost:9000/api/certificates/preview
+method: GET
+auth:
+  type: bearer
+  credentials:
+    token: "{{admin_token}}"
+order: 4503599627368587

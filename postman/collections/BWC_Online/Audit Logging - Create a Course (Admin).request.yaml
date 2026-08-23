@@ -1,0 +1,28 @@
+$kind: http-request
+name: Audit Logging - Create a Course (Admin)
+url: http://localhost:9000/api/courses
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"title\": \"Security Test Course\",\r
+
+    \    \"description\": \"Testing audit logging\",\r
+
+    \    \"instructor\": \"Test Admin\",\r
+
+    \    \"level\": \"beginner\",\r
+
+    \    \"category\": \"Testing\",\r
+
+    \    \"duration\": 60,\r
+
+    \    \"status\": \"draft\"\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{admin_token}}"
+order: 4503599627369987

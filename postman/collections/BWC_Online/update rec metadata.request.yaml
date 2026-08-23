@@ -1,0 +1,22 @@
+$kind: http-request
+name: update rec metadata
+url: http://localhost:9000/api/recordings/0HBQNL7SZUgvdAeV3wa8
+method: PUT
+body:
+  type: json
+  content: "{\r
+
+    \    \"title\": \"Updated: Node.js Introduction\",\r
+
+    \    \"description\": \"Updated description with more details\",\r
+
+    \    \"order\": 2,\r
+
+    \    \"isActive\": false\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{admin_token}}"
+order: 4503597208682893

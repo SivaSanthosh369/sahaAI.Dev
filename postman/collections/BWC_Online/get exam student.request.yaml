@@ -1,0 +1,9 @@
+$kind: http-request
+name: get exam student
+url: http://localhost:9000/api/exams/{{exam_id}}/take
+method: GET
+auth:
+  type: bearer
+  credentials:
+    token: "{{damu}}"
+order: 4503598723172695

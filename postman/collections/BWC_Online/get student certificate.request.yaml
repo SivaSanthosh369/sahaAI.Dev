@@ -1,0 +1,9 @@
+$kind: http-request
+name: get student certificate
+url: http://localhost:9000/api/certificates/my-certificates
+method: GET
+auth:
+  type: bearer
+  credentials:
+    token: "{{student_token}}"
+order: 4503599627365616

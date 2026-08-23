@@ -1,0 +1,9 @@
+$kind: http-request
+name: get exam stat admin
+url: http://localhost:9000/api/exams/{{exam_id}}/stats
+method: GET
+auth:
+  type: bearer
+  credentials:
+    token: "{{admin_token}}"
+order: 4503599627247566

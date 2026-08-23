@@ -1,0 +1,30 @@
+$kind: http-request
+name: Auto-Generate Certificate
+url: http://localhost:9000/api/exams/{{exam_id}}/submit
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"answers\": {\r
+
+    \        \"6313492e-7f00-42b0-9878-910529f46b30\": \"All of the above\",\r
+
+    \        \"1b4e96ba-327d-4b60-bc9d-7468b3092781\": \"false\",\r
+
+    \        \"47b8deb9-9c15-402d-a2b2-0ee0453172a3\": \"true\",\r
+
+    \        \"a138cd0a-dae5-4086-8e77-6ae748adc0d2\": \"Document Object Model\",\r
+
+    \        \"7a8e1db2-0b77-4950-81eb-f71242aeb1fe\": \"Float\"\r
+
+    \    },\r
+
+    \    \"timeTaken\": 8\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{student_token}}"
+order: 4503599627343316

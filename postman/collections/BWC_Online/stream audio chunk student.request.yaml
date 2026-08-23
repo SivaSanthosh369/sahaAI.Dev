@@ -1,0 +1,14 @@
+$kind: http-request
+name: stream audio chunk student
+url: http://localhost:9000/api/recordings/xJag2rzmNpLIKj7xFD4B/stream/1
+method: GET
+headers:
+  - key: Accept
+    value: audio/mpeg
+    disabled: true
+    description: ""
+auth:
+  type: bearer
+  credentials:
+    token: "{{damu}}"
+order: 4503593684091165

@@ -1,0 +1,12 @@
+$kind: http-request
+name: update course progress
+url: http://localhost:9000/api/courses/{{courseId}}/progress
+method: PUT
+body:
+  type: json
+  content: "{\r\n    \"progress\": 50\r\n}"
+auth:
+  type: bearer
+  credentials:
+    token: eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJuYW1lIjoiU3R1ZGVudCBVc2VyIiwicGljdHVyZSI6IiIsImVtYWlsIjoic3R1ZGVudEBleGFtcGxlLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiYXV0aF90aW1lIjoxNzg2ODI0MDQ2LCJ1c2VyX2lkIjoiYTZ0cUtObGhWd3ZGRzJKVGFrTDhjZE1Od3lYSiIsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsic3R1ZGVudEBleGFtcGxlLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn0sImlhdCI6MTc4NjgyNDA0NiwiZXhwIjoxNzg2ODI3NjQ2LCJhdWQiOiJid2Mtb25saW5lIiwiaXNzIjoiaHR0cHM6Ly9zZWN1cmV0b2tlbi5nb29nbGUuY29tL2J3Yy1vbmxpbmUiLCJzdWIiOiJhNnRxS05saFZ3dkZHMkpUYWtMOGNkTU53eVhKIn0.
+order: 4452385050257407

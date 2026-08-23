@@ -1,0 +1,38 @@
+$kind: http-request
+name: upload audio file admin
+url: http://localhost:9000/api/recordings/upload
+method: POST
+body:
+  type: formdata
+  content:
+    - type: text
+      key: courseId
+      value: t3BWzzrTnDz9SaXL37v5
+      description: ""
+      disabled: false
+    - type: text
+      key: title
+      value: '"Introduction to Node.js"'
+      description: ""
+      disabled: false
+    - type: text
+      key: description
+      value: '"First lecture covering Node.js basics"'
+      description: ""
+      disabled: false
+    - type: text
+      key: order
+      value: "1"
+      description: ""
+      disabled: false
+    - type: file
+      key: audio
+      src:
+        - /C:/Users/ananthajith/Downloads/sample-speech-20m.mp3
+      description: ""
+      disabled: false
+auth:
+  type: bearer
+  credentials:
+    token: "{{admin_token}}"
+order: 4503496369983390

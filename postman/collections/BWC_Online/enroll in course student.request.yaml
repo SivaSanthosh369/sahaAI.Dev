@@ -1,0 +1,9 @@
+$kind: http-request
+name: enroll in course student
+url: http://localhost:9000/api/courses/{{courseId}}/enroll
+method: POST
+auth:
+  type: bearer
+  credentials:
+    token: "{{damu}}"
+order: 3742605216322220

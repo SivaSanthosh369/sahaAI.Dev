@@ -1,0 +1,125 @@
+$kind: http-request
+url: http://localhost:9000/api/exams
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"courseId\": \"t3BWzzrTnDz9SaXL37v5\",\r
+
+    \    \"title\": \"JavaScript Fundamentals Quiz\",\r
+
+    \    \"description\": \"Test your knowledge of JavaScript basics\",\r
+
+    \    \"passingScore\": 70,\r
+
+    \    \"timeLimit\": 15,\r
+
+    \    \"attemptsAllowed\": 2,\r
+
+    \    \"shuffleQuestions\": true,\r
+
+    \    \"shuffleOptions\": true,\r
+
+    \    \"questions\": [\r
+
+    \        {\r
+
+    \            \"type\": \"multiple-choice\",\r
+
+    \            \"question\": \"What is the correct way to declare a variable in JavaScript?\",\r
+
+    \            \"options\": [\r
+
+    \                \"var name = 'John';\",\r
+
+    \                \"let name = 'John';\",\r
+
+    \                \"const name = 'John';\",\r
+
+    \                \"All of the above\"\r
+
+    \            ],\r
+
+    \            \"correctAnswer\": \"All of the above\",\r
+
+    \            \"points\": 10,\r
+
+    \            \"explanation\": \"JavaScript supports var, let, and const for variable declaration.\"\r
+
+    \        },\r
+
+    \        {\r
+
+    \            \"type\": \"multiple-choice\",\r
+
+    \            \"question\": \"Which of the following is NOT a JavaScript data type?\",\r
+
+    \            \"options\": [\r
+
+    \                \"String\",\r
+
+    \                \"Number\",\r
+
+    \                \"Float\",\r
+
+    \                \"Boolean\"\r
+
+    \            ],\r
+
+    \            \"correctAnswer\": \"Float\",\r
+
+    \            \"points\": 10,\r
+
+    \            \"explanation\": \"JavaScript has String, Number, Boolean, but Float is not a separate type.\"\r
+
+    \        },\r
+
+    \        {\r
+
+    \            \"type\": \"true-false\",\r
+
+    \            \"question\": \"JavaScript is a statically typed language.\",\r
+
+    \            \"correctAnswer\": \"false\",\r
+
+    \            \"points\": 5,\r
+
+    \            \"explanation\": \"JavaScript is dynamically typed, not statically typed.\"\r
+
+    \        },\r
+
+    \        {\r
+
+    \            \"type\": \"true-false\",\r
+
+    \            \"question\": \"Array indices in JavaScript start at 0.\",\r
+
+    \            \"correctAnswer\": \"true\",\r
+
+    \            \"points\": 5\r
+
+    \        },\r
+
+    \        {\r
+
+    \            \"type\": \"short-answer\",\r
+
+    \            \"question\": \"What does DOM stand for?\",\r
+
+    \            \"correctAnswer\": \"Document Object Model\",\r
+
+    \            \"points\": 10,\r
+
+    \            \"explanation\": \"DOM stands for Document Object Model.\"\r
+
+    \        }\r
+
+    \    ]\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{admin_token}}"
+order: 4503597972712152

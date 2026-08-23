@@ -1,0 +1,10 @@
+$kind: http-request
+name: list course recordings
+description: ""
+url: http://localhost:9000/api/recordings/course/{{courseId}}
+method: GET
+auth:
+  type: bearer
+  credentials:
+    token: "{{student_token}}"
+order: 4503570529668742

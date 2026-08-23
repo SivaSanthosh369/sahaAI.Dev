@@ -1,8 +1,44 @@
 const express = require('express');
 const cors = require('cors');
+const helmet = require('helmet');
 const session = require('express-session');
 const path = require('path');
 const app = express();
+
+// Security headers with Helmet
+app.use(
+    helmet({
+        contentSecurityPolicy: {
+            directives: {
+                defaultSrc: ["'self'"],
+                scriptSrc: [
+                    "'self'",
+                    "'unsafe-inline'",
+                    "'unsafe-eval'",
+                    "https://cdn.tailwindcss.com"
+                ],
+                styleSrc: [
+                    "'self'",
+                    "'unsafe-inline'",
+                    "https://fonts.googleapis.com"
+                ],
+                fontSrc: [
+                    "'self'",
+                    "https://fonts.gstatic.com",
+                    "data:"
+                ],
+                imgSrc: ["'self'", "data:", "https:"],
+                connectSrc: [
+                    "'self'",
+                    "https:",
+                    "http://localhost:*",
+                    "ws://localhost:*"
+                ]
+            }
+        },
+        crossOriginEmbedderPolicy: false
+    })
+);
 
 app.use(cors({
     origin: (origin, callback) => callback(null, true),
