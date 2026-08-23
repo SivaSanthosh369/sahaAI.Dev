@@ -17,11 +17,13 @@ app.use(
                     "'unsafe-eval'",
                     "https://cdn.tailwindcss.com"
                 ],
+                scriptSrcAttr: ["'self'", "'unsafe-inline'"],
                 styleSrc: [
                     "'self'",
                     "'unsafe-inline'",
                     "https://fonts.googleapis.com"
                 ],
+                styleSrcAttr: ["'self'", "'unsafe-inline'"],
                 fontSrc: [
                     "'self'",
                     "https://fonts.gstatic.com",

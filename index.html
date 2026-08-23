@@ -9,16 +9,10 @@
       content="sahaAI helps small businesses across Kerala automate customer replies, bookings, and promotions — no technical knowledge needed. See how it works."
     />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;700;800;900&family=Manrope:wght@400;500;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;700;800;900&family=Manrope:wght@400;500;600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
       rel="stylesheet"
     />
     <script id="tailwind-config">
@@ -235,15 +229,11 @@
             href="index.html"
             >How it Works</a
           >
-          <!-- <button
-            onclick="openContactModal()"
-            class="text-neutral-400 font-medium hover:text-[#F9F321] hover:scale-105 transition-all duration-200 font-label-caps cursor-pointer"
-            >Contact</button
-          > -->
         </nav>
         <div class="flex items-center gap-4">
           <button
-            onclick="openContactModal()"
+            type="button"
+            data-modal-target="contactModal"
             class="bg-[#F9F321] text-black px-6 py-2 rounded-full font-bold hover:scale-105 active:scale-95 transition-all font-label-caps inline-block cursor-pointer"
           >
             Contact Us
@@ -275,7 +265,8 @@
         </p>
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in delay-3">
           <button
-            onclick="openContactModal()"
+            type="button"
+            data-modal-target="contactModal"
             class="bg-[#F9F321] text-black px-10 py-4 rounded-full font-black text-base hover:scale-105 active:scale-95 transition-all font-label-caps hard-shadow cursor-pointer"
           >
             Get in Touch
@@ -573,7 +564,8 @@
               revenue from a single new customer. No setup fees. No long-term contracts. Cancel any time.
             </p>
             <button
-              onclick="openContactModal()"
+              type="button"
+              data-modal-target="contactModal"
               class="bg-[#F9F321] text-black px-10 py-4 rounded-full font-black text-base hover:scale-105 active:scale-95 transition-all font-label-caps hard-shadow inline-block cursor-pointer"
             >
               Contact Us — ₹499/month
@@ -633,7 +625,8 @@
               serve more customers, and grow — without extra staff.
             </p>
             <button
-              onclick="openContactModal()"
+              type="button"
+              data-modal-target="contactModal"
               class="bg-[#F9F321] text-black px-10 py-4 rounded-full font-black text-lg hover:scale-105 active:scale-95 transition-all font-label-caps hard-shadow inline-block cursor-pointer"
             >
               Get in Touch with Us
@@ -671,7 +664,7 @@
         </div>
         <nav class="flex flex-wrap justify-center gap-8">
           <a class="text-[#F9F321] font-label-caps text-sm uppercase tracking-widest hover:text-white transition-colors duration-200" href="index.html">How it Works</a>
-          <button onclick="openContactModal()" class="text-neutral-400 font-label-caps text-sm uppercase tracking-widest hover:text-white transition-colors duration-200 cursor-pointer">Contact</button>
+          <button type="button" data-modal-target="contactModal" class="text-neutral-400 font-label-caps text-sm uppercase tracking-widest hover:text-white transition-colors duration-200 cursor-pointer">Contact</button>
         </nav>
       </div>
     </footer>
@@ -689,8 +682,8 @@
       <!-- Backdrop -->
       <div
         id="contactModalBackdrop"
-        class="fixed inset-0 bg-black/80 backdrop-blur-md transition-opacity duration-300 opacity-0"
-        onclick="closeContactModal()"
+        data-modal-close="contactModal"
+        class="fixed inset-0 bg-black/80 backdrop-blur-md transition-opacity duration-300 opacity-0 cursor-pointer"
       ></div>
 
       <!-- Modal Card -->
@@ -713,7 +706,8 @@
             </p>
           </div>
           <button
-            onclick="closeContactModal()"
+            type="button"
+            data-modal-close="contactModal"
             class="w-9 h-9 rounded-full bg-neutral-900 border border-neutral-700 text-neutral-400 hover:text-white hover:border-[#F9F321] flex items-center justify-center transition-all focus:outline-none cursor-pointer"
             aria-label="Close modal"
           >
@@ -770,7 +764,8 @@
                 <span class="hidden sm:inline">Call</span>
               </a>
               <button
-                onclick="copyContactText('+918078832369', this)"
+                type="button"
+                data-copy-value="+918078832369"
                 class="p-2 rounded-lg bg-neutral-900 text-neutral-400 hover:text-white border border-neutral-700 hover:border-neutral-600 transition cursor-pointer"
                 title="Copy number"
               >
@@ -805,7 +800,8 @@
                 <span class="hidden sm:inline">Email</span>
               </a>
               <button
-                onclick="copyContactText('shivasanthosh369@gmail.com', this)"
+                type="button"
+                data-copy-value="shivasanthosh369@gmail.com"
                 class="p-2 rounded-lg bg-neutral-900 text-neutral-400 hover:text-white border border-neutral-700 hover:border-neutral-600 transition cursor-pointer"
                 title="Copy email"
               >
@@ -866,54 +862,86 @@
       );
       reveals.forEach((el) => revealObserver.observe(el));
 
-      // Contact Modal Functions
+      // Contact Modal Functions (Event-driven, no inline onclick needed)
       function openContactModal() {
-        const modal = document.getElementById('contactModal');
-        const backdrop = document.getElementById('contactModalBackdrop');
-        const card = document.getElementById('contactModalCard');
+        const modal = document.getElementById("contactModal");
+        const backdrop = document.getElementById("contactModalBackdrop");
+        const card = document.getElementById("contactModalCard");
         if (!modal) return;
-        modal.classList.remove('hidden');
-        modal.classList.add('flex');
-        document.body.style.overflow = 'hidden';
+        modal.classList.remove("hidden");
+        modal.classList.add("flex");
+        document.body.style.overflow = "hidden";
         requestAnimationFrame(() => {
-          backdrop.classList.remove('opacity-0');
-          backdrop.classList.add('opacity-100');
-          card.classList.remove('scale-95', 'opacity-0');
-          card.classList.add('scale-100', 'opacity-100');
+          if (backdrop) {
+            backdrop.classList.remove("opacity-0");
+            backdrop.classList.add("opacity-100");
+          }
+          if (card) {
+            card.classList.remove("scale-95", "opacity-0");
+            card.classList.add("scale-100", "opacity-100");
+          }
         });
       }
 
       function closeContactModal() {
-        const modal = document.getElementById('contactModal');
-        const backdrop = document.getElementById('contactModalBackdrop');
-        const card = document.getElementById('contactModalCard');
+        const modal = document.getElementById("contactModal");
+        const backdrop = document.getElementById("contactModalBackdrop");
+        const card = document.getElementById("contactModalCard");
         if (!modal) return;
-        backdrop.classList.remove('opacity-100');
-        backdrop.classList.add('opacity-0');
-        card.classList.remove('scale-100', 'opacity-100');
-        card.classList.add('scale-95', 'opacity-0');
+        if (backdrop) {
+          backdrop.classList.remove("opacity-100");
+          backdrop.classList.add("opacity-0");
+        }
+        if (card) {
+          card.classList.remove("scale-100", "opacity-100");
+          card.classList.add("scale-95", "opacity-0");
+        }
         setTimeout(() => {
-          modal.classList.remove('flex');
-          modal.classList.add('hidden');
-          document.body.style.overflow = '';
+          modal.classList.remove("flex");
+          modal.classList.add("hidden");
+          document.body.style.overflow = "";
         }, 200);
       }
 
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
+      // Event delegation for all modal actions
+      document.addEventListener("click", function (e) {
+        const openTrigger = e.target.closest("[data-modal-target='contactModal']");
+        if (openTrigger) {
+          e.preventDefault();
+          openContactModal();
+          return;
+        }
+
+        const closeTrigger = e.target.closest("[data-modal-close='contactModal']");
+        if (closeTrigger) {
+          e.preventDefault();
           closeContactModal();
+          return;
+        }
+
+        const copyBtn = e.target.closest("[data-copy-value]");
+        if (copyBtn) {
+          e.preventDefault();
+          const text = copyBtn.getAttribute("data-copy-value");
+          if (navigator.clipboard && text) {
+            navigator.clipboard.writeText(text).then(() => {
+              const originalHTML = copyBtn.innerHTML;
+              copyBtn.innerHTML = '<span class="material-symbols-outlined text-sm text-[#F9F321]">check</span>';
+              setTimeout(() => {
+                copyBtn.innerHTML = originalHTML;
+              }, 1500);
+            }).catch(() => {});
+          }
+          return;
         }
       });
 
-      function copyContactText(text, btn) {
-        navigator.clipboard.writeText(text).then(() => {
-          const originalHTML = btn.innerHTML;
-          btn.innerHTML = '<span class="material-symbols-outlined text-sm text-[#F9F321]">check</span>';
-          setTimeout(() => {
-            btn.innerHTML = originalHTML;
-          }, 1500);
-        }).catch(() => {});
-      }
+      // Close on Escape key
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+          closeContactModal();
+        }
+      });
     </script>
   </body>
 </html>
